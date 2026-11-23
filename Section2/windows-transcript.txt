@@ -1,0 +1,2241 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261116222219
+Username: CTS_LENOVO\afort
+RunAs User: CTS_LENOVO\afort
+Configuration Name: 
+Machine: CTS_LENOVO (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 19588
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\afort\OneDrive\Documents\PowerShell_transcript.CTS_LENOVO.JpTos2D5.20261116222219.txt
+PS C:\WINDOWS\system32> Get-MpComputerStatus | Select-Object AMServiceEnabled, AntivirusEnabled, RealTimeProtectionEnabled, IsTamperProtected
+
+AMServiceEnabled AntivirusEnabled RealTimeProtectionEnabled IsTamperProtected
+---------------- ---------------- ------------------------- -----------------
+            True             True                      True              True
+
+
+PS C:\WINDOWS\system32> Get-NetFirewallProfile | Select-Object Name, Enabled, DefaultInboundAction, DefaultOutboundAction, LogAllowed, LogBlocked
+
+
+Name                  : Domain
+Enabled               : True
+DefaultInboundAction  : NotConfigured
+DefaultOutboundAction : NotConfigured
+LogAllowed            : False
+LogBlocked            : False
+
+Name                  : Private
+Enabled               : True
+DefaultInboundAction  : NotConfigured
+DefaultOutboundAction : NotConfigured
+LogAllowed            : False
+LogBlocked            : False
+
+Name                  : Public
+Enabled               : True
+DefaultInboundAction  : NotConfigured
+DefaultOutboundAction : NotConfigured
+LogAllowed            : False
+LogBlocked            : False
+
+
+
+PS C:\WINDOWS\system32> Get-SmbServerConfiguration | Select-Object EnableSMB1Protocol
+
+EnableSMB1Protocol
+------------------
+             False
+
+
+PS C:\WINDOWS\system32> auditpol /set /subcategory:"Process Creation" /success:enable /failure:enable
+The command was successfully executed.
+PS C:\WINDOWS\system32> reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit" `
+        /v ProcessCreationIncludeCmdLine_Enabled /t REG_DWORD /d 1 /f
+The operation completed successfully.
+PS C:\WINDOWS\system32> dir
+
+
+    Directory: C:\WINDOWS\system32
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        11/26/2025   9:27 PM                %userprofile%
+d-----          4/1/2024   4:06 AM                0409
+d-----         4/17/2025   9:24 PM                AccountHealthAssets
+d-----        10/18/2026  10:46 PM                AdvancedInstallers
+d-----         8/15/2026   1:01 PM                af-ZA
+d-----         8/15/2026   1:01 PM                am-ET
+d-----         2/15/2025   7:01 PM                AppLocker
+d-----        10/18/2026  10:46 PM                appraiser
+d-----         8/15/2026   1:01 PM                ar-SA
+d-----         8/15/2026   1:01 PM                as-IN
+d-----         8/15/2026   1:01 PM                az-Latn-AZ
+d-----         8/15/2026   1:01 PM                be-BY
+d-----         8/15/2026   1:01 PM                bg-BG
+d-----         8/15/2026   1:01 PM                bn-IN
+d-----        10/18/2026  10:46 PM                Boot
+d-----         2/13/2026   8:44 PM                braille-tables
+d-----         8/15/2026   1:01 PM                bs-Latn-BA
+d-----          4/1/2024   3:26 AM                Bthprops
+d-----         8/15/2026   1:01 PM                ca-ES
+d-----         8/15/2026   1:01 PM                ca-ES-valencia
+d-----        11/16/2026   7:51 PM                CatRoot
+d-----        11/16/2026   7:18 PM                catroot2
+d-----         8/15/2026   1:01 PM                chr-CHER-US
+d-----        10/18/2026  10:46 PM                CodeIntegrity
+d-----         8/18/2025  11:42 PM                Com
+d-----        11/16/2026   7:29 PM                config
+d---s-          4/1/2024   3:34 AM                Configuration
+d-----         8/15/2026   1:01 PM                cs-CZ
+d-----         8/15/2026   1:01 PM                cy-GB
+d-----         8/15/2026   1:01 PM                da-DK
+d-----        10/18/2026  10:46 PM                DDFs
+d-----         8/15/2026   1:01 PM                de-DE
+d---s-         2/15/2025   7:00 PM                DiagSvcs
+d-----        10/18/2026  10:46 PM                Dism
+d-----          4/1/2024   3:26 AM                downlevel
+d-----         11/5/2026   9:15 PM                drivers
+d-----          4/1/2024   3:26 AM                DriverState
+d-----        10/18/2026  10:47 PM                DriverStore
+d-----         10/5/2025   6:11 PM                DRVSTORE
+d---s-          4/1/2024   4:06 AM                dsc
+d-----         8/15/2026   1:01 PM                el-GR
+d-----         8/15/2026   1:01 PM                en
+d-----         8/15/2026   1:01 PM                en-GB
+d-----        10/18/2026  10:46 PM                en-US
+d-----         8/15/2026   1:01 PM                es-ES
+d-----         8/15/2026   1:01 PM                es-MX
+d-----         8/15/2026   1:01 PM                et-EE
+d-----         8/15/2026   1:01 PM                eu-ES
+d---s-         9/14/2026   7:23 PM                F12
+d-----         8/15/2026   1:01 PM                fa-IR
+d-----         8/15/2026   1:01 PM                fi-FI
+d-----         8/15/2026   1:01 PM                fil-PH
+d-----         8/15/2026   1:01 PM                fr-CA
+d-----         8/15/2026   1:01 PM                fr-FR
+d-----         8/15/2026   1:01 PM                ga-IE
+d-----         8/15/2026   1:01 PM                gd-GB
+d-----         8/15/2026   1:01 PM                gl-ES
+d-----          5/7/2022   1:24 AM                GroupPolicyUsers
+d-----         8/15/2026   1:01 PM                gu-IN
+d-----         8/15/2026   1:01 PM                he-IL
+d-----        10/18/2026  10:46 PM                HealthAttestationClient
+d-----         8/15/2026   1:01 PM                hi-IN
+d-----         8/15/2026   1:01 PM                hr-HR
+d-----         8/15/2026   1:01 PM                hu-HU
+d-----         8/15/2026   1:01 PM                hy-AM
+d-----         2/15/2025   7:01 PM                Hydrogen
+d-----          4/1/2024   3:26 AM                ias
+d-----          4/1/2024   3:26 AM                icsxml
+d-----         8/15/2026   1:01 PM                id-ID
+d-----          4/1/2024   3:26 AM                IME
+d-----          4/1/2024   3:26 AM                inetsrv
+d-----          4/1/2024   3:26 AM                InputMethod
+d-----          4/1/2024   3:26 AM                Ipmi
+d-----         8/15/2026   1:01 PM                is-IS
+d-----         8/15/2026   1:01 PM                it-IT
+d-----         8/15/2026   1:01 PM                ja-jp
+d-----         8/15/2026   1:01 PM                ka-GE
+d-----          4/1/2024   3:26 AM                Keywords
+d-----         8/15/2026   1:01 PM                kk-KZ
+d-----         8/15/2026   1:01 PM                km-KH
+d-----         8/15/2026   1:01 PM                kn-IN
+d-----         8/15/2026   1:01 PM                ko-KR
+d-----         8/15/2026   1:01 PM                kok-IN
+d-----         8/15/2026   1:01 PM                lb-LU
+d-----          4/1/2024   3:26 AM                Licenses
+d-----         8/15/2026   1:01 PM                lo-LA
+d-----         10/5/2025  10:09 PM                LogFiles
+d-----         2/15/2025   7:01 PM                Logs
+d-----         8/15/2026   1:01 PM                lt-LT
+d-----         8/15/2026   1:01 PM                lv-LV
+d---s-          4/1/2024   3:26 AM                lxss
+d-----          4/1/2024   4:08 AM                MailContactsCalendarSync
+d-----         8/15/2026   1:01 PM                mi-NZ
+d-----         2/15/2025   6:59 PM                Microsoft
+d-----        10/18/2026  10:46 PM                Microsoft-Edge-WebView
+d-----        10/18/2026  10:46 PM                migration
+d-----        10/18/2026  10:46 PM                migwiz
+d-----         8/15/2026   1:01 PM                mk-MK
+d-----         8/15/2026   1:01 PM                ml-IN
+d-----         8/15/2026   1:01 PM                mr-IN
+d-----        11/16/2026   6:47 PM                MRT
+d-----         8/15/2026   1:01 PM                ms-MY
+d-----          4/1/2024   3:26 AM                MSDRM
+d-----         2/15/2025   7:01 PM                MsDtc
+d-----         8/15/2026   1:01 PM                mt-MT
+d-----          4/1/2024   4:06 AM                MUI
+d-----        10/18/2026  10:46 PM                NarratorMCAT
+d-----         8/15/2026   1:01 PM                nb-NO
+d-----          4/1/2024   3:26 AM                NDF
+d-----         8/15/2026   1:01 PM                ne-NP
+d-----          4/1/2024   3:26 AM                networklist
+d-----         8/15/2026   1:01 PM                nl-NL
+d-----         8/15/2026   1:01 PM                nn-NO
+d-----         2/15/2025   7:01 PM                Npcap
+d---s-          4/1/2024   3:26 AM                Nui
+d-----        10/18/2026  10:46 PM                oobe
+d-----        10/18/2026  10:46 PM                OpenSSH
+d-----         8/15/2026   1:01 PM                or-IN
+d-----         8/15/2026   1:01 PM                pa-IN
+d-----          4/1/2024   3:34 AM                Pbr
+d-----        10/18/2026  10:46 PM                PerceptionSimulation
+d-----         8/15/2026   1:01 PM                pl-PL
+d-----          4/1/2024   3:34 AM                PointOfService
+d-----          4/1/2024   4:06 AM                Printing_Admin_Scripts
+d-----          4/1/2024   3:26 AM                ProximityToast
+d-----         8/15/2026   1:01 PM                pt-BR
+d-----         8/15/2026   1:01 PM                pt-PT
+d-----         8/15/2026   1:01 PM                qps-ploc
+d-----         8/15/2026   1:01 PM                qps-plocm
+d-----         8/15/2026   1:01 PM                quz-PE
+d-----          4/1/2024   3:34 AM                ras
+d-----          4/1/2024   3:26 AM                RasToast
+d-----         8/15/2026   1:00 PM                Recovery
+d-----          4/1/2024   3:26 AM                restore
+d-----         8/15/2026   1:01 PM                ro-RO
+d-----         8/15/2026   1:01 PM                ru-RU
+d-----        10/18/2026  10:46 PM                ruxim
+d-----        10/18/2026  10:46 PM                SecureBootUpdates
+d-----        11/12/2026   8:13 PM                SecurityHealth
+d-----        10/18/2026  10:46 PM                setup
+d-----        10/18/2026  10:46 PM                ShellExperiences
+d-----         8/15/2026   1:01 PM                sk-SK
+d-----         8/15/2026   1:01 PM                sl-SI
+d-----         9/27/2026   6:37 PM                SleepStudy
+d-----          4/1/2024   4:06 AM                slmgr
+d-----          4/1/2024   3:34 AM                SMI
+d-----          4/1/2024   3:26 AM                Speech
+d-----          4/1/2024   3:34 AM                Speech_OneCore
+d-----         2/15/2025   7:01 PM                spool
+d-----          4/1/2024   3:34 AM                spp
+d-----          4/1/2024   3:26 AM                sppui
+d-----         8/15/2026   1:01 PM                sq-AL
+d-----         8/15/2026   1:01 PM                sr-Cyrl-BA
+d-----         8/15/2026   1:01 PM                sr-Cyrl-RS
+d-----         8/15/2026   1:01 PM                sr-Latn-RS
+d-----        11/16/2026   9:49 PM                sru
+d-----         2/15/2025   4:01 PM                SunplusIT
+d-----         8/15/2026   1:01 PM                sv-SE
+d-----        10/18/2026  10:46 PM                Sysprep
+d-----         2/15/2025   7:00 PM                SystemResetPlatform
+d-----         8/15/2026   1:01 PM                ta-IN
+d-----         11/9/2026   2:46 PM                Tasks
+d-----         2/15/2025   7:01 PM                Tasks_Migrated
+d-----         8/15/2026   1:01 PM                te-IN
+d-----         8/15/2026   1:01 PM                th-TH
+d-----         8/15/2026   1:01 PM                tr-TR
+d-----         8/15/2026   1:01 PM                tt-RU
+d-----         8/15/2026   1:01 PM                ug-CN
+d-----         8/15/2026   1:01 PM                uk-UA
+d-----         8/15/2026   1:01 PM                ur-PK
+d-----         8/15/2026   1:01 PM                uz-Latn-UZ
+d-----         8/15/2026   1:01 PM                vi-VN
+d-----        10/18/2026  10:46 PM                wbem
+d-----          4/1/2024   4:06 AM                WCN
+d-----         9/10/2025   3:20 AM                WDI
+d-----          4/1/2024   3:26 AM                WebThreatDefSvc
+d-----         2/15/2025   7:01 PM                WinBioDatabase
+d-----        10/18/2026  10:46 PM                WinBioPlugIns
+d-----          4/1/2024   3:26 AM                WindowsPowerShell
+d-----          4/1/2024   3:34 AM                winevt
+d-----        10/18/2026  10:46 PM                WinMetadata
+d-----          4/1/2024   4:06 AM                winrm
+d-----         8/15/2026   1:01 PM                zh-CN
+d-----         8/15/2026   1:01 PM                zh-TW
+-a----         8/15/2026  12:34 PM          26088 07409496-a423-4a3e-b620-2cfb01a9318d_HyperV-ComputeNetwork.dll
+-a----         8/15/2026  12:34 PM          26072 0ae3b998-9a38-4b72-a4c4-06849441518d_Servicing-Stack.dll
+-a----        10/18/2026  10:26 PM          36216 3bc29097-7317-41d3-93b9-38a48f99d48a_mssrch.dll
+-a----         8/15/2026  12:34 PM          26064 4545ffe2-0dc4-4df4-9d02-299ef204635e_hvsocket.dll
+-a----        10/21/2026   6:43 PM           4380 5E37410B-D6F1-471D-AE27-563CEAC0D6B2
+-a----         8/15/2026  12:34 PM          26088 69fe178f-26e7-43a9-aa7d-2b616b672dde_eventlogservice.dll
+-a----        10/18/2026  10:25 PM          36168 6bea57fb-8dfb-4177-9ae8-42e8b3529933_RuntimeDeviceInstall.dll
+-a----          4/1/2024   3:22 AM           3176 @AdvancedKeySettingsNotification.png
+-a----          4/1/2024   3:22 AM            232 @AppHelpToast.png
+-a----          4/1/2024   3:22 AM            308 @AudioToastIcon.png
+-a----         8/18/2025  11:23 PM            549 @AutoSrToastIcon.png
+-a----          4/1/2024   3:22 AM            660 @BackgroundAccessToastIcon.png
+-a----          4/1/2024   3:22 AM            199 @bitlockertoastimage.png
+-a----          4/1/2024   3:22 AM          14791 @edptoastimage.png
+-a----          4/1/2024   3:22 AM            330 @EnrollmentToastIcon.png
+-a----         2/15/2025   6:57 PM         212411 @facial-recognition-windows-hello-rejuv.gif
+-a----          4/1/2024   3:22 AM         243815 @facial-recognition-windows-hello.gif
+-a----          4/1/2024   3:22 AM            563 @language_notification_icon.png
+-a----          4/1/2024   3:22 AM            699 @optionalfeatures.png
+-a----          4/1/2024   3:22 AM            354 @StorageSenseToastIcon.png
+-a----          4/1/2024   3:22 AM           1070 @VpnToastIcon.png
+-a----          4/1/2024   3:22 AM            546 @WindowsHelloFaceToastIcon.png
+-a----         2/15/2025   6:57 PM           1215 @WindowsHelloFaceToastIconRejuv.png
+-a----          4/1/2024   3:22 AM            565 @WindowsUpdateToastIcon.contrast-black.png
+-a----          4/1/2024   3:22 AM            599 @WindowsUpdateToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM            565 @WindowsUpdateToastIcon.png
+-a----          4/1/2024   3:22 AM            691 @WirelessDisplayToast.png
+-a----          4/1/2024   3:22 AM            331 @WLOGO_96x96.png
+-a----        10/18/2026  10:25 PM         462848 aadauthhelper.dll
+-a----        10/18/2026  10:25 PM        1052672 aadcloudap.dll
+-a----         9/14/2026   7:00 PM          98304 aadjcsp.dll
+-a----        10/18/2026  10:25 PM        1661440 aadtb.dll
+-a----        10/18/2026  10:25 PM         249160 aadWamExtension.dll
+-a----        10/18/2026  10:25 PM         569344 AarSvc.dll
+-a----        10/18/2026  10:25 PM         994680 AboutSettingsHandlers.dll
+-a----         9/14/2026   7:00 PM         405504 AboveLockAppHost.dll
+-a----        10/18/2026  10:25 PM         319488 accessibilitycpl.dll
+-a----         4/19/2026  11:44 PM         303104 accountaccessor.dll
+-a----        10/18/2026  10:25 PM          90112 AccountHealth.dll
+-a----         9/14/2026   7:00 PM         376832 AccountsRt.dll
+-a----        10/18/2026  10:25 PM         545168 AcGenral.dll
+-a----        10/18/2026  10:25 PM         413696 AcLayers.dll
+-a----          4/1/2024   3:22 AM          32768 acledit.dll
+-a----        10/18/2026  10:25 PM         581632 aclui.dll
+-a----        10/18/2026  10:25 PM         646520 acmigration.dll
+-a----        10/18/2026  10:25 PM         262144 ACPBackgroundManagerPolicy.dll
+-a----        10/18/2026  10:25 PM         159744 acppage.dll
+-a----          4/1/2024   3:22 AM          40960 acproxy.dll
+-a----        10/18/2026  10:25 PM         139264 AcSpecfc.dll
+-a----         9/14/2026   7:00 PM         335872 ActionCenter.dll
+-a----        10/18/2026  10:25 PM         180224 ActionCenterCPL.dll
+-a----         4/19/2026  11:43 PM         267776 ActionQueue.dll
+-a----        10/18/2026  10:25 PM         192512 ActivationClient.dll
+-a----        10/18/2026  10:25 PM         933888 ActivationManager.dll
+-a----        11/12/2025   3:24 PM         303104 activeds.dll
+-a----          4/1/2024   3:22 AM         122880 activeds.tlb
+-a----          4/1/2024   3:22 AM           8321 ActiveHours.png
+-a----         9/14/2026   7:00 PM         102400 ActiveSyncCsp.dll
+-a----         9/14/2026   7:00 PM        1810432 ActiveSyncProvider.dll
+-a----        10/18/2026  10:25 PM         532480 actxprxy.dll
+-a----         8/15/2026  12:34 PM          90112 AcWinRT.dll
+-a----         2/15/2025   6:57 PM          40960 AcXtrnal.dll
+-a----         4/19/2026  11:45 PM          69632 AdaptiveCards.dll
+-a----         2/15/2025   6:57 PM          94208 AddressParser.dll
+-a----         2/13/2026   8:19 PM          49152 adhapi.dll
+-a----          9/9/2025   8:44 PM         110592 adhsvc.dll
+-a----        10/18/2026  10:25 PM         110592 adprovider.dll
+-a----        10/18/2026  10:25 PM        1196032 adpsvc.dll
+-a----        11/12/2025   3:24 PM         315392 adsldp.dll
+-a----         2/15/2025   6:57 PM         282624 adsldpc.dll
+-a----         2/15/2025   6:57 PM         131072 adsmsext.dll
+-a----        11/12/2025   3:24 PM         421888 adsnt.dll
+-a----         9/14/2026   7:00 PM         991232 adtschema.dll
+-a----         9/14/2026   7:00 PM         204800 AdvancedEmojiDS.dll
+-a----        10/18/2026  10:25 PM         795272 advapi32.dll
+-a----         8/18/2025  11:23 PM          12288 advapi32res.dll
+-a----         4/19/2026  11:44 PM         180224 advpack.dll
+-a----         8/15/2026  12:34 PM          40960 aeevts.dll
+-a----        10/18/2026  10:25 PM        1707360 aeinv.dll
+-a----        10/18/2026  10:25 PM        1260928 aemarebackup.dll
+-a----        10/18/2026  10:25 PM        1341232 aepic.dll
+-a----        10/18/2026  10:25 PM        1007616 agentactivationruntime.dll
+-a----         2/15/2025   6:57 PM          40960 agentactivationruntimestarter.exe
+-a----        10/18/2026  10:25 PM        1179648 agentactivationruntimewindows.dll
+-a----        10/18/2026  10:25 PM         659456 AgentGovernanceCSP.dll
+-a----        10/18/2026  10:25 PM         319488 AggregatorHost.exe
+-a----        10/18/2026  10:25 PM         184320 AIComponentMgmt.dll
+-a----        10/18/2026  10:25 PM        1011712 aidd.dll
+-a----        10/18/2026  10:25 PM        4037048 aitstatic.exe
+-a----        10/18/2026  10:25 PM         208896 alg.exe
+-a----         3/31/2024   4:23 PM          18944 amcompat.tlb
+-a----        12/10/2025   2:42 PM         114688 amsi.dll
+-a----          4/1/2024   3:22 AM          36864 amsiproxy.dll
+-a----          9/9/2025   8:44 PM         122880 amstream.dll
+-a----          9/9/2025   8:44 PM         262144 apds.dll
+-a----         4/19/2026  11:44 PM         102400 APHostClient.dll
+-a----         3/31/2024  12:54 PM          24576 APHostRes.dll
+-a----        10/18/2026  10:25 PM         389120 APHostService.dll
+-a----        10/18/2026  10:25 PM         409600 apisampling.dll
+-a----        10/18/2026  10:25 PM         188416 ApiSetHost.AppExecutionAlias.dll
+-a----        10/18/2026  10:25 PM         204152 apisetschema.dll
+-a----        10/18/2026  10:25 PM        1646592 APMon.dll
+-a----        10/18/2026  10:25 PM          77824 APMonUI.dll
+-a----        10/18/2026  10:26 PM         962000 AppContracts.dll
+-a----        10/18/2026  10:26 PM         389120 AppExtension.dll
+-a----        10/18/2026  10:25 PM         991232 appfootprint.dll
+-a----        10/18/2026  10:25 PM         678520 apphelp.dll
+-a----          9/9/2025   8:43 PM          57344 Apphlpdm.dll
+-a----         9/14/2026   7:01 PM         139264 AppHostRegistrationVerifier.exe
+-a----         8/15/2026  12:34 PM         104832 appidapi.dll
+-a----         8/15/2026  12:34 PM          49152 appidcertstorecheck.exe
+-a----         8/15/2026  12:34 PM         155648 appidpolicyconverter.exe
+-a----         8/15/2026  12:34 PM         118784 appidsvc.dll
+-a----         9/14/2026   7:00 PM          49152 appidtel.exe
+-a----        10/18/2026  10:25 PM         479232 appinfo.dll
+-a----        12/10/2025   2:43 PM          40960 appinfoext.dll
+-a----        10/18/2026  10:25 PM          89488 AppInstallerBackgroundUpdate.exe
+-a----         4/19/2026  11:43 PM          77824 AppInstallerPrompt.Desktop.dll
+-a----        10/18/2026  10:25 PM         131072 ApplicationControlCSP.dll
+-a----        10/18/2026  10:25 PM         737280 ApplicationFrame.dll
+-a----        10/18/2026  10:25 PM         107504 ApplicationFrameHost.exe
+-a----        10/18/2026  10:25 PM         385024 ApplicationTargetedFeatureDatabase.dll
+-a----        10/18/2026  10:25 PM         118784 AppListBackupLauncher.dll
+-a----        10/18/2026  10:25 PM         368640 AppLockerCSP.dll
+-a----        10/18/2026  10:25 PM        1358000 ApplyTrustOffline.exe
+-a----        10/18/2026  10:25 PM         139264 AppMon.dll
+-a----         9/14/2026   7:01 PM         176128 AppointmentActivation.dll
+-a----         9/14/2026   7:01 PM         811008 AppointmentApis.dll
+-a----        10/18/2026  10:25 PM        3112288 appraiser.dll
+-a----        10/18/2026  10:25 PM         745472 AppReadiness.dll
+-a----         8/18/2025  11:23 PM          40960 apprepapi.dll
+-a----        10/18/2026  10:25 PM         774384 AppResolver.dll
+-a----         9/14/2026   7:01 PM         258048 ApproveChildRequest.exe
+-a----         9/14/2026   7:01 PM         221184 appsruprov.dll
+-a----        10/18/2026  10:25 PM         618496 appwiz.cpl
+-a----        10/18/2026  10:25 PM         445768 AppxAllUserStore.dll
+-a----        10/18/2026  10:25 PM         253952 AppXApplicabilityBlob.dll
+-a----        10/18/2026  10:25 PM         286096 AppxApplicabilityEngine.dll
+-a----        10/18/2026  10:25 PM        1553856 AppXDeploymentClient.dll
+-a----        10/18/2026  10:25 PM        2801664 AppXDeploymentExtensions.desktop.dll
+-a----        10/18/2026  10:25 PM        3616768 AppXDeploymentExtensions.onecore.dll
+-a----        10/18/2026  10:25 PM        6402048 AppXDeploymentServer.dll
+-a----        10/18/2026  10:25 PM        2526584 AppxPackaging.dll
+-a----         8/15/2026  12:35 PM           3714 AppxProvisioning.xml
+-a----        10/18/2026  10:25 PM         417792 AppxSip.dll
+-a----         2/15/2025   6:57 PM          45056 AppxStreamingDataSourcePS.dll
+-a----        10/18/2026  10:25 PM         208896 AppxSysprep.dll
+-a----        10/18/2026  10:25 PM         233472 Apx01000.dll
+-a----         9/14/2026   7:00 PM          73728 ApxSvc.dll
+-a----        10/18/2026  10:25 PM        1482752 archiveint.dll
+-a----        10/18/2026  10:25 PM          49152 ARP.EXE
+-a----         4/19/2026  11:44 PM          12288 asferror.dll
+-a----         6/18/2025   6:05 PM          27192 aspnet_counters.dll
+-a----         8/15/2026  12:35 PM          90112 AssignedAccessRuntime.dll
+-a----          4/1/2024   3:22 AM         110592 asycfilt.dll
+-a----         2/15/2025   6:57 PM          49152 at.exe
+-a----        10/18/2026  10:25 PM         163840 AtBroker.exe
+-a----          9/9/2025   8:43 PM         122880 atl.dll
+-a----          4/1/2024   3:22 AM          53248 atlthunk.dll
+-a----        10/18/2026  10:25 PM          77824 atmlib.dll
+-a----          4/1/2024   3:22 AM          45056 attrib.exe
+-a----        10/18/2026  10:25 PM         903640 audiodg.exe
+-a----        10/18/2026  10:25 PM         663552 AudioEndpointBuilder.dll
+-a----        10/18/2026  10:25 PM        2053960 AudioEng.dll
+-a----        10/18/2026  10:25 PM         884736 AudioHandlers.dll
+-a----        10/18/2026  10:25 PM         507688 AUDIOKSE.dll
+-a----        10/18/2026  10:25 PM         106496 audioresourceregistrar.dll
+-a----        10/18/2026  10:25 PM        1853920 AudioSes.dll
+-a----        10/18/2026  10:25 PM        2138112 audiosrv.dll
+-a----        10/18/2026  10:25 PM         478504 AudioSrvPolicyManager.dll
+-a----        11/12/2025   3:25 PM         192512 auditcse.dll
+-a----         2/15/2025   6:57 PM          61440 auditpol.exe
+-a----         4/19/2026  11:44 PM         102400 auditpolcore.dll
+-a----         9/14/2026   7:00 PM         229376 AuthBroker.dll
+-a----         4/19/2026  11:45 PM         135168 AuthBrokerUI.dll
+-a----        10/18/2026  10:25 PM          98304 AuthExt.dll
+-a----        11/12/2025   3:25 PM         368640 authfwcfg.dll
+-a----         2/15/2025   6:57 PM          53248 AuthFWGP.dll
+-a----        10/18/2026  10:25 PM        5505536 AuthFWSnapin.dll
+-a----          4/1/2024   3:22 AM         113152 AuthFWWizFwk.dll
+-a----        11/12/2025   3:25 PM         158456 AuthHost.exe
+-a----        11/12/2025   3:25 PM          40960 AuthHostProxy.dll
+-a----        10/18/2026  10:25 PM         270336 authui.dll
+-a----        10/18/2026  10:25 PM         327680 authz.dll
+-a----        10/18/2026  10:26 PM        1564672 AutoCatHost.exe
+-a----         9/14/2026   7:00 PM        1048576 autochk.exe
+-a----         9/14/2026   7:00 PM          94208 autofstx.exe
+-a----         8/15/2026  12:35 PM          69632 AutomaticAppSignInPolicy.dll
+-a----        10/23/2025   2:28 AM         283272 AutoModeDetect.exe
+-a----        10/18/2026  10:25 PM         299008 autopilot.dll
+-a----         8/15/2026  12:36 PM          69632 autopilotdiag.dll
+-a----         8/15/2026  12:35 PM         200704 autoplay.dll
+-a----        10/23/2025   2:28 AM         355968 AutoQuiet.dll
+-a----         4/19/2026  11:44 PM         139264 autotimesvc.dll
+-a----          4/1/2024   3:22 AM         138092 AverageRoom.bin
+-a----         2/15/2025   6:57 PM         110592 avicap32.dll
+-a----        12/10/2025   2:43 PM         143360 avifil32.dll
+-a----         8/15/2026  12:36 PM          55256 avrt.dll
+-a----        10/18/2026  10:25 PM         172032 AxInstSv.dll
+-a----         2/15/2025   6:57 PM          86016 AxInstUI.exe
+-a----          4/1/2024   3:22 AM          41587 azman.msc
+-a----         2/15/2025   6:57 PM         647168 azroles.dll
+-a----         2/15/2025   6:57 PM         430080 azroleui.dll
+-a----         2/15/2025   6:57 PM          57344 AzSqlExt.dll
+-a----         4/19/2026  11:45 PM          94208 BackgroundMediaPolicy.dll
+-a----        10/18/2026  10:25 PM          60768 backgroundTaskHost.exe
+-a----          4/1/2024   3:22 AM          61440 BackgroundTransferHost.exe
+-a----        10/18/2026  10:25 PM          40960 BamSettingsClient.dll
+-a----        10/18/2026  10:25 PM         139264 BarcodeProvisioningPlugin.dll
+-a----        10/18/2026  10:25 PM         310624 basecsp.dll
+-a----        10/18/2026  10:25 PM         102400 basesrv.dll
+-a----        10/18/2026  10:25 PM         122880 batmeter.dll
+-a----        10/18/2026  10:25 PM         217088 bcastdvr.proxy.dll
+-a----        10/18/2026  10:25 PM         126976 BcastDVRBroker.dll
+-a----        10/18/2026  10:25 PM         483328 BcastDVRClient.dll
+-a----        10/18/2026  10:25 PM         282624 BcastDVRCommon.dll
+-a----        10/18/2026  10:25 PM        1454080 bcastdvruserservice.dll
+-a----        10/18/2026  10:25 PM         178384 bcd.dll
+-a----        10/18/2026  10:25 PM         311296 bcdboot.exe
+-a----        10/18/2026  10:25 PM         535928 bcdedit.exe
+-a----          4/1/2024   3:22 AM          94208 bcdprov.dll
+-a----          4/1/2024   3:22 AM         106496 bcdsrv.dll
+-a----        10/18/2026  10:25 PM         407656 BCP47Langs.dll
+-a----        10/18/2026  10:25 PM         236712 BCP47mrm.dll
+-a----        10/18/2026  10:25 PM         195128 bcrypt.dll
+-a----        10/18/2026  10:25 PM         732800 bcryptprimitives.dll
+-a----         2/15/2025   6:57 PM         124344 bdaplgin.ax
+-a----          4/1/2024   4:09 AM         131072 BdeHdCfgLib.dll
+-a----         9/14/2026   7:01 PM          81920 bderepair.dll
+-a----        10/18/2026  10:25 PM         675840 bdesvc.dll
+-a----        10/18/2026  10:25 PM          61440 bdeui.dll
+-a----        10/18/2026  10:25 PM          86016 BdeUISrv.exe
+-a----        10/18/2026  10:25 PM         328440 bdeunlock.exe
+-a----        10/18/2026  10:25 PM        1052672 BFE.DLL
+-a----        10/18/2026  10:25 PM          81920 bfscfg.exe
+-a----          4/1/2024   3:22 AM          53248 bi.dll
+-a----        10/18/2026  10:25 PM         118784 bidispl.dll
+-a----        10/18/2026  10:25 PM         229376 bindfltapi.dll
+-a----        10/18/2026  10:25 PM         425984 BingASDS.dll
+-a----         9/14/2026   7:00 PM         102400 BingFilterDS.dll
+-a----        10/18/2026  10:25 PM        8118272 BingMaps.dll
+-a----         9/14/2026   7:00 PM         688128 BingOnlineServices.dll
+-a----        10/18/2026  10:25 PM         483328 BioCredProv.dll
+-a----        10/18/2026  10:25 PM         774480 BioIso.exe
+-a----        10/18/2026  10:25 PM         974848 bisrv.dll
+-a----        10/18/2026  10:25 PM         372736 BitLockerCsp.dll
+-a----        10/18/2026  10:25 PM         208896 BitLockerDeviceEncryption.exe
+-a----         2/15/2025   6:57 PM         126976 BitLockerWizardElev.exe
+-a----        10/18/2026  10:25 PM         278528 bitsadmin.exe
+-a----         2/15/2025   6:57 PM         110592 bitsigd.dll
+-a----        10/14/2025   4:33 PM          53248 bitsperf.dll
+-a----          9/9/2025   8:44 PM          90112 BitsProxy.dll
+-a----        10/18/2026  10:25 PM         386816 biwinrt.dll
+-a----          4/1/2024   3:22 AM          86016 BlbEvents.dll
+-a----         8/15/2026  12:35 PM          12288 blbres.dll
+-a----         8/15/2026  12:35 PM          90112 blb_ps.dll
+-a----        10/18/2026  10:25 PM         249856 BluetoothApis.dll
+-a----        10/18/2026  10:25 PM         118784 BluetoothDesktopHandlers.dll
+-a----         4/19/2026  11:44 PM         126976 BluetoothOppPushClient.dll
+-a----          4/1/2024   3:22 AM           8495 BluetoothPairingSystemToastIcon.contrast-black.png
+-a----          4/1/2024   3:22 AM           8736 BluetoothPairingSystemToastIcon.contrast-high.png
+-a----          4/1/2024   3:22 AM           8495 BluetoothPairingSystemToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM           8541 BluetoothPairingSystemToastIcon.png
+-a----          4/1/2024   3:22 AM           1320 BluetoothSystemToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM           1229 BluetoothSystemToastIcon.png
+-a----        10/18/2026  10:25 PM         118784 bnmanager.dll
+-a----          4/1/2024   3:22 AM        3170304 boot.sdi
+-a----        10/18/2026  10:25 PM         474464 BootCriticalUpdatePlugin.dll
+-a----         8/15/2026  12:35 PM          53248 bootim.exe
+-a----        10/18/2026  10:25 PM         299008 BootMenuUX.dll
+-a----         8/18/2025  11:23 PM         112032 bootsect.exe
+-a----          4/1/2024   3:22 AM          21824 bootstr.dll
+-a----        10/18/2026  10:25 PM         332624 bootsvc.dll
+-a----        10/18/2026  10:25 PM        5320704 bootux.dll
+-a----         8/18/2025  11:23 PM          62880 BOOTVID.DLL
+-a----          4/1/2024   3:22 AM          22984 bopomofo.uce
+-a----         2/15/2025   6:57 PM          12288 bridgeres.dll
+-a----         2/15/2025   6:57 PM          49152 bridgeunattend.exe
+-a----        10/18/2026  10:25 PM         139264 BrokerFileDialog.dll
+-a----         9/14/2026   7:00 PM         225280 BrokerLib.dll
+-a----         2/15/2025   6:57 PM          90112 browcli.dll
+-a----         9/14/2026   7:00 PM         304632 browserbroker.dll
+-a----         4/19/2026  11:44 PM         159744 browserexport.exe
+-a----         4/19/2026  11:44 PM          67048 browser_broker.exe
+-a----          4/1/2024   3:22 AM          40960 browseui.dll
+-a----        10/18/2026  10:25 PM        1159168 BTAGService.dll
+-a----        10/18/2026  10:25 PM         528384 BthAvctpSvc.dll
+-a----        10/18/2026  10:25 PM         405504 BthAvrcp.dll
+-a----         8/18/2025  11:23 PM          86016 BthAvrcpAppSvc.dll
+-a----         9/14/2026   7:01 PM         122880 bthci.dll
+-a----        10/18/2026  10:25 PM          94208 BthMtpContextHandler.dll
+-a----         9/14/2026   7:00 PM          61440 bthpanapi.dll
+-a----         9/14/2026   7:00 PM         217088 BthpanContextHandler.dll
+-a----        10/18/2026  10:25 PM         278528 bthprops.cpl
+-a----        10/18/2026  10:25 PM         139264 BthRadioMedia.dll
+-a----        10/18/2026  10:25 PM         315392 bthserv.dll
+-a----        10/18/2026  10:25 PM         180224 BthTelemetry.dll
+-a----         3/11/2026   6:04 PM          69632 bthudtask.exe
+-a----        10/18/2026  10:25 PM         200704 btpanui.dll
+-a----        10/18/2026  10:25 PM         860160 Bubbles.scr
+-a----         4/19/2026  11:44 PM          90112 BWContextHandler.dll
+-a----         9/14/2026   7:00 PM         114688 ByteCodeGenerator.exe
+-a----         8/15/2026  12:34 PM          26072 c4d66f00-b6f0-4439-ac9b-c5ea13fe54d7_HyperV-ComputeCore.dll
+-a----         8/15/2026  12:35 PM         139264 cabapi.dll
+-a----        10/18/2026  10:25 PM         195056 cabinet.dll
+-a----        10/18/2026  10:25 PM         229376 cabview.dll
+-a----          4/1/2024   3:22 AM          61440 cacls.exe
+-a----         8/15/2026  12:35 PM          49152 calc.exe
+-a----         4/19/2026  11:44 PM         118784 CallButtons.dll
+-a----         8/18/2025  11:23 PM          49152 CallButtons.ProxyStub.dll
+-a----          9/9/2025   8:44 PM         184320 CallHistoryClient.dll
+-a----         8/15/2026  12:35 PM         155648 CameraCaptureUI.dll
+-a----         2/15/2025   6:57 PM          63336 CameraSettingsUIHost.exe
+-a----         4/19/2026  11:44 PM          55256 camext.dll
+-a----        10/18/2026  10:25 PM         143360 CapabilityAccessHandlers.dll
+-a----        10/18/2026  10:25 PM         122880 CapabilityAccessManager.Desktop.Identity.dll
+-a----        10/18/2026  10:25 PM        1400832 CapabilityAccessManager.Desktop.Storage.dll
+-a----        10/18/2026  10:25 PM        1720320 CapabilityAccessManager.dll
+-a----        10/18/2026  10:25 PM         450560 CapabilityAccessManagerClient.dll
+-a----         9/14/2026   7:00 PM         394072 capauthz.dll
+-a----        10/18/2026  10:25 PM         118784 capiprovider.dll
+-a----          4/1/2024   3:22 AM          49152 capisp.dll
+-a----        10/18/2026  10:25 PM         225280 CaptureService.dll
+-a----         2/15/2025   6:57 PM         122880 CastingShellExt.dll
+-a----         9/14/2026   7:00 PM         126976 CastLaunch.dll
+-a----        11/12/2025   3:24 PM          92384 CastSrv.exe
+-a----        10/18/2026  10:25 PM         540672 catsrv.dll
+-a----         2/13/2026   8:19 PM          69632 catsrvps.dll
+-a----        10/18/2026  10:25 PM         548864 catsrvut.dll
+-a----        10/18/2026  10:25 PM         909312 CBDHSvc.dll
+-a----         2/15/2025   6:57 PM         110592 cca.dll
+-a----        10/18/2026  10:25 PM         335872 cdd.dll
+-a----          9/9/2025   8:44 PM        1032192 cdosys.dll
+-a----        10/18/2026  10:25 PM        5902336 cdp.dll
+-a----        10/18/2026  10:25 PM        2826240 cdprt.dll
+-a----        10/18/2026  10:25 PM         876544 cdpsvc.dll
+-a----        10/18/2026  10:25 PM         724992 cdpusersvc.dll
+-a----        10/18/2026  10:25 PM          90112 cellulardatacapabilityhandler.dll
+-a----         9/14/2026   7:01 PM         282624 cemapi.dll
+-a----          4/1/2024   3:22 AM          40960 cero.rs
+-a----        10/18/2026  10:25 PM         872448 certca.dll
+-a----        10/18/2026  10:25 PM         524288 certcli.dll
+-a----         8/18/2025  11:23 PM          73728 certCredProvider.dll
+-a----        10/18/2026  10:25 PM          98304 certenc.dll
+-a----        10/18/2026  10:25 PM        2936832 CertEnroll.dll
+-a----        10/18/2026  10:25 PM         118784 CertEnrollCtrl.exe
+-a----        10/18/2026  10:25 PM         405504 CertEnrollUI.dll
+-a----          4/1/2024   3:22 AM          63081 certlm.msc
+-a----          9/9/2025   8:44 PM        2289664 certmgr.dll
+-a----          4/1/2024   3:22 AM          63070 certmgr.msc
+-a----        11/12/2025   3:25 PM          98304 CertPKICmdlet.dll
+-a----        10/18/2026  10:25 PM         212992 CertPolEng.dll
+-a----        10/18/2026  10:25 PM         282624 certprop.dll
+-a----        10/18/2026  10:25 PM         536576 certreq.exe
+-a----        10/18/2026  10:25 PM        1589248 certutil.exe
+-a----         8/15/2026  12:37 PM         286720 cewmdm.dll
+-a----          9/9/2025   8:44 PM         110592 cfgbkend.dll
+-a----        10/18/2026  10:25 PM         357640 cfgmgr32.dll
+-a----        10/18/2026  10:25 PM         192512 CfgSPCellular.dll
+-a----         9/14/2026   7:01 PM         155648 CfgSPPolicy.dll
+-a----        10/18/2026  10:25 PM         290816 cflapi.dll
+-a----          9/9/2025   8:44 PM          66968 cfmifs.dll
+-a----         8/18/2025  11:23 PM          36864 cfmifsproxy.dll
+-a----        10/18/2026  10:25 PM        7938048 Chakra.dll
+-a----        10/18/2026  10:25 PM         166912 Chakradiag.dll
+-a----        10/18/2026  10:25 PM         163840 Chakrathunk.dll
+-a----        10/18/2026  10:25 PM         153352 changepk.exe
+-a----        10/18/2026  10:25 PM         282624 charmap.exe
+-a----          4/1/2024   3:22 AM         147456 chartv.dll
+-a----         9/14/2026   7:01 PM         720896 ChatApis.dll
+-a----          4/1/2024   3:22 AM          36864 chcp.com
+-a----         9/14/2026   7:01 PM          69632 CheckNetIsolation.exe
+-a----         9/14/2026   7:00 PM          53248 chkdsk.exe
+-a----          4/1/2024   3:22 AM          45056 chkntfs.exe
+-a----          4/1/2024   3:22 AM          57344 choice.exe
+-a----        10/18/2026  10:25 PM         475136 ChsStrokeDS.dll
+-a----          4/1/2024   3:22 AM         167640 chs_singlechar_pinyin.dat
+-a----        10/18/2026  10:25 PM         475136 ChtBopomofoDS.dll
+-a----        10/18/2026  10:25 PM         483328 ChtCangjieDS.dll
+-a----        10/18/2026  10:25 PM         475136 ChtHkStrokeDS.dll
+-a----        10/18/2026  10:25 PM         471040 ChtQuickDS.dll
+-a----        10/18/2026  10:25 PM         552960 ChxAPDS.dll
+-a----        10/18/2026  10:25 PM         368640 ChxDecoder.dll
+-a----        10/18/2026  10:25 PM         524288 ChxHAPDS.dll
+-a----         9/14/2026   7:00 PM         393216 chxinputrouter.dll
+-a----        10/18/2026  10:25 PM         139264 chxranker.dll
+-a----         2/15/2025   6:57 PM          36864 CHxReadingStringIME.dll
+-a----        10/18/2026  10:25 PM        1195376 ci.dll
+-a----        10/18/2026  10:25 PM         225280 cic.dll
+-a----          9/9/2025   8:44 PM          65536 CIDiag.exe
+-a----        10/18/2026  10:25 PM         363872 cimfs.dll
+-a----         2/15/2025   6:57 PM          77824 cipher.exe
+-a----         2/15/2025   6:57 PM          36864 CIRCoInst.dll
+-a----         9/14/2026   7:00 PM         382456 CiTool.exe
+-a----        10/18/2026  10:25 PM         732752 clbcatq.dll
+-a----         9/14/2026   7:00 PM         192512 cldapi.dll
+-a----        10/18/2026  10:25 PM         331776 cleanmgr.exe
+-a----         9/14/2026   7:01 PM          90112 CleanPCCSP.dll
+-a----         4/19/2026  11:44 PM         114688 clfsw32.dll
+-a----         2/15/2025   6:57 PM         118784 cliconfg.dll
+-a----         2/15/2025   6:57 PM          53248 cliconfg.exe
+-a----          4/1/2024   3:22 AM          45056 cliconfg.rll
+-a----          4/1/2024   3:22 AM          57344 clip.exe
+-a----         9/14/2026   7:01 PM         229376 ClipboardServer.dll
+-a----         2/15/2025   6:57 PM         241136 Clipc.dll
+-a----        10/18/2026  10:25 PM         146760 ClipRenew.exe
+-a----        10/18/2026  10:25 PM        1028632 ClipSVC.dll
+-a----        10/18/2026  10:25 PM        1166280 ClipUp.exe
+-a----        10/18/2026  10:25 PM         212296 ClipUpgrade.exe
+-a----        10/18/2026  10:25 PM        1285472 clipwinrt.dll
+-a----        10/18/2026  10:25 PM         700416 cloudAP.dll
+-a----        10/18/2026  10:25 PM         217088 CloudDesktopCSP.dll
+-a----         9/14/2026   7:00 PM         155648 CloudDomainJoinAUG.dll
+-a----        10/18/2026  10:25 PM         458752 CloudDomainJoinDataModelServer.dll
+-a----        10/18/2026  10:25 PM         679264 CloudExperienceHost.dll
+-a----        10/18/2026  10:25 PM         408928 CloudExperienceHostBroker.dll
+-a----        10/18/2026  10:25 PM         134520 CloudExperienceHostBroker.exe
+-a----        10/18/2026  10:25 PM        1387896 CloudExperienceHostCommon.dll
+-a----        10/18/2026  10:25 PM         221184 CloudExperienceHostRedirection.dll
+-a----        10/18/2026  10:25 PM         310624 CloudExperienceHostUser.dll
+-a----        10/18/2026  10:25 PM         334848 CloudIdWxhExtension.dll
+-a----        10/18/2026  10:25 PM         124176 CloudNotifications.exe
+-a----         8/15/2026  12:34 PM        2792864 CloudRecoveryDownloadTool.dll
+-a----        10/18/2026  10:25 PM        2371584 CloudRestoreLauncher.dll
+-a----          4/1/2024   3:22 AM          40960 clrhost.dll
+-a----        10/18/2026  10:25 PM        1273856 clusapi.dll
+-a----         2/15/2025   6:57 PM          65536 cmcfg32.dll
+-a----        10/18/2026  10:25 PM         339968 cmd.exe
+-a----        10/18/2026  10:25 PM          69632 cmdext.dll
+-a----          4/1/2024   3:22 AM         569344 cmdial32.dll
+-a----        11/12/2025   3:25 PM          49152 cmdkey.exe
+-a----         2/15/2025   6:57 PM          77824 cmdl32.exe
+-a----         8/18/2025  11:23 PM          81920 cmgrcspps.dll
+-a----        10/18/2026  10:25 PM         245088 cmifw.dll
+-a----        10/18/2026  10:26 PM         122880 cmintegrator.dll
+-a----          4/1/2024   3:22 AM          65536 cmlua.dll
+-a----         2/13/2026   8:19 PM          69632 cmmon32.exe
+-a----          4/1/2024   3:22 AM          53248 cmpbk32.dll
+-a----         2/15/2025   6:57 PM         122880 cmstp.exe
+-a----          4/1/2024   3:22 AM          40960 cmstplua.dll
+-a----         2/15/2025   6:57 PM          81920 cmutil.dll
+-a----        11/12/2025   3:24 PM         135168 cngcredui.dll
+-a----        10/18/2026  10:25 PM         118784 cngprovider.dll
+-a----         2/13/2026   8:19 PM          65536 cnvfat.dll
+-a----          4/1/2024   3:22 AM          36864 cob-au.rs
+-a----        10/18/2026  10:25 PM         303104 CodeIntegrityAggregator.dll
+-a----         2/15/2025   6:57 PM          45056 cofire.exe
+-a----         2/15/2025   6:57 PM          57344 cofiredm.dll
+-a----        10/18/2026  10:25 PM         110592 colbact.dll
+-a----        10/18/2026  10:25 PM         270056 COLORCNV.DLL
+-a----         2/15/2025   6:57 PM         110592 colorcpl.exe
+-a----        10/18/2026  10:25 PM         151552 colorui.dll
+-a----        10/18/2026  10:25 PM        3783712 combase.dll
+-a----          4/1/2024   3:22 AM          32768 comcat.dll
+-a----         8/15/2026  12:36 PM         742904 comctl32.dll
+-a----        10/18/2026  10:25 PM         983040 comdlg32.dll
+-a----          4/1/2024   3:22 AM         124118 comexp.msc
+-a----        10/18/2026  10:25 PM         536808 coml2.dll
+-a----          4/1/2024   3:22 AM          49152 comp.exe
+-a----          4/1/2024   3:22 AM          73728 compact.exe
+-a----         4/19/2026  11:44 PM          98304 CompatAggregator.dll
+-a----        10/18/2026  10:25 PM         903608 CompatTelRunner.exe
+-a----          4/1/2024   3:22 AM         113256 compmgmt.msc
+-a----         8/15/2026  12:35 PM         114688 CompMgmtLauncher.exe
+-a----         4/17/2025   9:07 PM         286720 ComposableShellProxyStub.dll
+-a----        10/18/2026  10:25 PM         294912 ComposerFramework.dll
+-a----         8/15/2026  12:35 PM         106496 CompPkgSrv.exe
+-a----         8/15/2026  12:35 PM         212248 CompPkgSup.dll
+-a----          9/9/2025   8:44 PM         151552 compstui.dll
+-a----        10/18/2026  10:25 PM        1043800 computecore.dll
+-a----         8/18/2025  11:23 PM          26016 computelibeventlog.dll
+-a----         9/14/2026   7:00 PM         131072 computenetwork.dll
+-a----         4/19/2026  11:44 PM          73728 ComputerDefaults.exe
+-a----          4/1/2024   3:22 AM            686 ComputerToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM            387 ComputerToastIcon.png
+-a----        10/18/2026  10:25 PM         482704 computestorage.dll
+-a----          9/9/2025   8:44 PM         143360 comrepl.dll
+-a----         8/18/2025  11:23 PM          12288 comres.dll
+-a----          9/9/2025   8:44 PM         299008 comsnap.dll
+-a----        10/18/2026  10:25 PM        1728512 comsvcs.dll
+-a----         2/15/2025   6:57 PM         802816 comuid.dll
+-a----        11/21/2025   9:56 PM         321696 concrt140.dll
+-a----        10/18/2026  10:25 PM         733184 configmanager2.dll
+-a----        10/18/2026  10:25 PM         114688 ConfigureExpandedStorage.dll
+-a----        10/18/2026  10:25 PM        1003520 conhost.exe
+-a----         9/14/2026   7:00 PM         331776 connect.dll
+-a----        10/18/2026  10:25 PM          86016 ConnectedAccountState.dll
+-a----         9/14/2026   7:00 PM          77824 ConnectionAttributionApi.dll
+-a----        10/18/2026  10:25 PM         265544 consent.exe
+-a----        10/18/2026  10:25 PM         237568 ConsentExperienceCommon.dll
+-a----        10/18/2026  10:25 PM         171328 ConsentUX.dll
+-a----        10/18/2026  10:25 PM         348160 ConsentUxClient.dll
+-a----         4/19/2026  11:43 PM         200704 console.dll
+-a----        10/18/2026  10:25 PM         380928 ConsoleLogon.dll
+-a----        10/18/2026  10:25 PM        1385984 ConstraintIndex.Search.dll
+-a----        10/18/2026  10:25 PM          98304 ContactActivation.dll
+-a----        10/18/2026  10:25 PM        1126400 ContactApis.dll
+-a----        10/18/2026  10:25 PM         278528 ContactHarvesterDS.dll
+-a----        10/18/2026  10:25 PM         303104 container.dll
+-a----         9/14/2026   7:00 PM         271840 containerdevicemanagement.dll
+-a----        10/18/2026  10:25 PM        1715552 ContentDeliveryManager.Utilities.dll
+-a----         8/18/2025  11:23 PM         122880 control.exe
+-a----        10/18/2026  10:25 PM        4080128 ControlCenter.dll
+-a----         3/16/2026   4:10 AM         337952 ControlLib.dll
+-a----         2/13/2026   8:19 PM          45056 convert.exe
+-a----         9/14/2026   7:01 PM         243176 convertvhd.exe
+-a----         2/15/2025   6:57 PM          40960 coreaudiopolicymanagerext.dll
+-a----        10/18/2026  10:25 PM         274432 coredpus.dll
+-a----         4/19/2026  11:44 PM          81920 coredpussvr.exe
+-ar---        10/18/2026  10:25 PM         265888 coreglobconfig.dll
+-a----        10/18/2026  10:25 PM         270336 CoreMas.dll
+-a----        10/18/2026  10:25 PM        1257928 CoreMessaging.dll
+-a----          4/1/2024   4:09 AM          28672 CoreMmRes.dll
+-a----         9/14/2026   7:00 PM         204000 CorePrivacySettingsStore.dll
+-a----        10/18/2026  10:25 PM        2011136 CoreShell.dll
+-a----         9/14/2026   7:00 PM         561152 CoreShellAPI.dll
+-a----         9/14/2026   7:00 PM         151552 CoreShellExtFramework.dll
+-a----        10/18/2026  10:25 PM        3080152 CoreUIComponents.dll
+-a----        10/18/2026  10:25 PM         110592 correngine.dll
+-a----        10/18/2026  10:25 PM         286720 CourtesyEngine.dll
+-a----        10/18/2026  10:25 PM         565248 CPFilters.dll
+-a----         9/14/2026   7:00 PM         155648 CredDialogBroker.dll
+-a----        10/18/2026  10:25 PM         511800 CredentialEnrollmentManager.exe
+-a----         9/14/2026   7:00 PM         113080 CredentialEnrollmentManagerForUser.dll
+-a----        10/18/2026  10:25 PM         228400 CredentialUIBroker.exe
+-a----         9/14/2026   7:00 PM         139264 CredProv2faHelper.dll
+-a----        10/18/2026  10:25 PM         126976 CredProvCommonCore.dll
+-a----        10/18/2026  10:25 PM         675840 CredProvDataModel.dll
+-a----        10/18/2026  10:25 PM         176128 CredProvHelper.dll
+-a----        10/18/2026  10:25 PM         528384 credprovhost.dll
+-a----        10/18/2026  10:25 PM         413696 credprovs.dll
+-a----        10/18/2026  10:25 PM         233472 credprovslegacy.dll
+-a----         8/18/2025  11:23 PM          53248 credssp.dll
+-a----        10/18/2026  10:25 PM         114688 credui.dll
+-a----         3/13/2025   5:26 PM          65536 credwiz.exe
+-a----          4/1/2024   3:22 AM           2293 CriticallyLowBatterySystemToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM           2461 CriticallyLowBatterySystemToastIcon.png
+-a----         8/15/2026  12:34 PM         185856 CrossDeviceVirtualCameraSource.dll
+-a----        10/18/2026  10:25 PM        1587168 crypt32.dll
+-a----        10/18/2026  10:25 PM          70096 cryptbase.dll
+-a----        10/18/2026  10:25 PM         241664 cryptcatsvc.dll
+-a----         2/15/2025   6:57 PM          53248 cryptdlg.dll
+-a----        10/18/2026  10:25 PM         103464 cryptdll.dll
+-a----          9/9/2025   8:44 PM          98304 cryptext.dll
+-a----        10/18/2026  10:25 PM         265912 cryptnet.dll
+-a----        10/18/2026  10:25 PM         495616 cryptngc.dll
+-a----        10/18/2026  10:25 PM        2654208 cryptoss.dll
+-a----        10/18/2026  10:25 PM         442368 CryptoWinRT.dll
+-a----        10/18/2026  10:25 PM         132584 cryptsp.dll
+-a----        10/18/2026  10:25 PM         155648 cryptsvc.dll
+-a----        10/18/2026  10:25 PM         172032 crypttpmeksvc.dll
+-a----        10/18/2026  10:25 PM         393216 cryptui.dll
+-a----        10/18/2026  10:25 PM         159744 cryptuiwizard.dll
+-a----        10/18/2026  10:25 PM         186720 cryptxml.dll
+-a----          4/1/2024   3:22 AM          77824 cscapi.dll
+-a----          4/1/2024   3:22 AM          57344 cscdll.dll
+-a----        10/18/2026  10:25 PM         176128 cscript.exe
+-a----         9/14/2026   7:01 PM          81920 CspCellularSettings.dll
+-a----        10/18/2026  10:25 PM         184320 csplte.dll
+-a----          9/9/2025   8:44 PM          86016 CspProxy.dll
+-a----          4/1/2024   3:22 AM          49152 csrr.rs
+-a----        10/18/2026  10:25 PM          94208 csrsrv.dll
+-a----          4/1/2024   3:22 AM          38576 csrss.exe
+-a----         4/19/2026  11:45 PM          49152 CSystemEventsBrokerClient.dll
+-a----        10/18/2026  10:25 PM          91797 ctac.json
+-a----        10/18/2026  10:25 PM          86016 CtacWorker.exe
+-a----        10/18/2026  10:25 PM          69632 ctfmon.exe
+-a----        10/18/2026  10:25 PM         155648 cttune.exe
+-a----          9/9/2025   8:44 PM          65536 cttunesvr.exe
+-a----         8/15/2026  12:34 PM         818512 curl.exe
+-a----        10/18/2026  10:25 PM         163840 CustomInstallExec.exe
+-a----        10/18/2026  10:25 PM         221184 cxcredprov.dll
+-a----        10/18/2026  10:25 PM         294912 CXHProvisioningServer.dll
+-a----          4/1/2024   3:22 AM          66082 C_037.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10000.NLS
+-a----          4/1/2024   3:22 AM         162850 C_10001.NLS
+-a----          4/1/2024   3:22 AM         195618 C_10002.NLS
+-a----          4/1/2024   3:22 AM         177698 C_10003.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10004.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10005.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10006.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10007.NLS
+-a----          4/1/2024   3:22 AM         173602 C_10008.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10010.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10017.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10021.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10029.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10079.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10081.NLS
+-a----          4/1/2024   3:22 AM          66082 C_10082.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1026.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1047.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1140.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1141.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1142.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1143.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1144.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1145.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1146.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1147.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1148.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1149.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1250.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1251.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1252.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1253.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1254.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1255.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1256.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1257.NLS
+-a----          4/1/2024   3:22 AM          66082 C_1258.NLS
+-a----          4/1/2024   3:22 AM         189986 C_1361.NLS
+-a----          4/1/2024   3:22 AM         180258 C_20000.NLS
+-a----          4/1/2024   3:22 AM         186402 C_20001.NLS
+-a----          4/1/2024   3:22 AM         173602 C_20002.NLS
+-a----          4/1/2024   3:22 AM         185378 C_20003.NLS
+-a----          4/1/2024   3:22 AM         180258 C_20004.NLS
+-a----          4/1/2024   3:22 AM         187938 C_20005.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20105.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20106.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20107.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20108.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20127.NLS
+-a----          4/1/2024   3:22 AM         139810 C_20261.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20269.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20273.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20277.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20278.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20280.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20284.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20285.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20290.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20297.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20420.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20423.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20424.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20833.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20838.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20866.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20871.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20880.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20905.NLS
+-a----          4/1/2024   3:22 AM          66082 C_20924.NLS
+-a----          4/1/2024   3:22 AM         180770 C_20932.NLS
+-a----          4/1/2024   3:22 AM         173602 C_20936.NLS
+-a----          4/1/2024   3:22 AM         177698 C_20949.NLS
+-a----          4/1/2024   3:22 AM          66082 C_21025.NLS
+-a----          4/1/2024   3:22 AM          66082 C_21027.NLS
+-a----          4/1/2024   3:22 AM          66082 C_21866.NLS
+-a----          4/1/2024   3:22 AM          66082 C_28591.NLS
+-a----          4/1/2024   3:22 AM          66082 C_28592.NLS
+-a----          4/1/2024   3:22 AM          66082 C_28593.NLS
+-a----          4/1/2024   3:22 AM          66082 C_28594.NLS
+-a----          4/1/2024   3:22 AM          66082 C_28595.NLS
+-a----          4/1/2024   3:22 AM          66082 C_28596.NLS
+-a----          4/1/2024   3:22 AM          66082 C_28597.NLS
+-a----          4/1/2024   3:22 AM          66082 C_28598.NLS
+-a----          4/1/2024   3:22 AM          66082 C_28599.NLS
+-a----          4/1/2024   3:22 AM          66082 c_28603.nls
+-a----          4/1/2024   3:22 AM          66082 C_28605.NLS
+-a----          4/1/2024   3:22 AM          66594 C_437.NLS
+-a----          4/1/2024   3:22 AM          66082 C_500.NLS
+-a----          4/1/2024   3:22 AM          66082 C_708.NLS
+-a----          4/1/2024   3:22 AM          66594 C_720.NLS
+-a----          4/1/2024   3:22 AM          66594 C_737.NLS
+-a----          4/1/2024   3:22 AM          66594 C_775.NLS
+-a----          4/1/2024   3:22 AM          66594 C_850.NLS
+-a----          4/1/2024   3:22 AM          66594 C_852.NLS
+-a----          4/1/2024   3:22 AM          66594 C_855.NLS
+-a----          4/1/2024   3:22 AM          66594 C_857.NLS
+-a----          4/1/2024   3:22 AM          66594 C_858.NLS
+-a----          4/1/2024   3:22 AM          66594 C_860.NLS
+-a----          4/1/2024   3:22 AM          66594 C_861.NLS
+-a----          4/1/2024   3:22 AM          66594 C_862.NLS
+-a----          4/1/2024   3:22 AM          66594 C_863.NLS
+-a----          4/1/2024   3:22 AM          66594 C_864.NLS
+-a----          4/1/2024   3:22 AM          66594 C_865.NLS
+-a----          4/1/2024   3:22 AM          66594 C_866.NLS
+-a----          4/1/2024   3:22 AM          66594 C_869.NLS
+-a----          4/1/2024   3:22 AM          66082 C_870.NLS
+-a----          4/1/2024   3:22 AM          66594 C_874.NLS
+-a----          4/1/2024   3:22 AM          66082 C_875.NLS
+-a----          4/1/2024   3:22 AM         162850 C_932.NLS
+-a----          4/1/2024   3:22 AM         196642 C_936.NLS
+-a----          4/1/2024   3:22 AM         196642 C_949.NLS
+-a----          4/1/2024   3:22 AM         196642 C_950.NLS
+-a----         2/13/2026   8:19 PM         249856 C_G18030.DLL
+-a----         2/13/2026   8:19 PM          36864 c_GSM7.DLL
+-a----         2/13/2026   8:19 PM          45056 C_IS2022.DLL
+-a----         8/15/2026  12:35 PM          32768 C_ISCII.DLL
+-a----        10/18/2026  10:25 PM        6659752 d2d1.dll
+-a----        10/18/2026  10:25 PM         618496 d2d1debug3.dll
+-a----         2/15/2025   6:57 PM        1253376 d3d10.dll
+-a----         2/15/2025   6:57 PM          57344 d3d10core.dll
+-a----        10/18/2026  10:25 PM         432664 d3d10level9.dll
+-a----        10/18/2026  10:25 PM        6001120 d3d10warp.dll
+-a----         2/15/2025   6:57 PM         208896 d3d10_1.dll
+-a----         2/15/2025   6:57 PM          57344 d3d10_1core.dll
+-a----        10/18/2026  10:25 PM        2537488 d3d11.dll
+-a----        10/18/2026  10:25 PM         703576 d3d11on12.dll
+-a----        10/18/2026  10:25 PM        1200128 d3d11_3SDKLayers.dll
+-a----        10/18/2026  10:25 PM         157520 D3D12.dll
+-a----        10/18/2026  10:25 PM        3562784 D3D12Core.dll
+-a----        10/18/2026  10:25 PM        4825088 d3d12SDKLayers.dll
+-a----        10/18/2026  10:25 PM          36864 d3d8thk.dll
+-a----        10/18/2026  10:25 PM        1799712 d3d9.dll
+-a----        10/18/2026  10:25 PM         778240 d3d9on12.dll
+-a----         3/12/2007   5:42 PM        1400176 D3DCompiler_33.dll
+-a----         5/16/2007   5:45 PM        1401200 D3DCompiler_34.dll
+-a----         7/19/2007   7:14 PM        1985904 D3DCompiler_35.dll
+-a----        10/12/2007   4:14 PM        2006552 D3DCompiler_36.dll
+-a----          3/5/2008   3:56 PM        1860120 D3DCompiler_37.dll
+-a----         5/30/2008   3:11 PM        1941528 D3DCompiler_38.dll
+-a----         7/10/2008  12:00 PM        1942552 D3DCompiler_39.dll
+-a----        10/15/2008   7:22 AM        2605920 D3DCompiler_40.dll
+-a----          3/9/2009   4:27 PM        2430312 D3DCompiler_41.dll
+-a----          9/4/2009   6:29 PM        2582888 D3DCompiler_42.dll
+-a----         5/26/2010  12:41 PM        2526056 D3DCompiler_43.dll
+-a----        10/18/2026  10:25 PM        4669440 D3DCompiler_47.dll
+-a----        10/18/2026  10:25 PM         516096 d3dconfig.exe
+-a----          9/4/2009   6:29 PM        5554512 d3dcsx_42.dll
+-a----         5/26/2010  12:41 PM        1907552 d3dcsx_43.dll
+-a----        10/18/2026  10:25 PM         941128 D3DSCache.dll
+-a----        11/29/2006   1:06 PM         469264 d3dx10.dll
+-a----         3/15/2007   5:57 PM         506728 d3dx10_33.dll
+-a----         5/16/2007   5:45 PM         506728 d3dx10_34.dll
+-a----         7/19/2007   7:14 PM         508264 d3dx10_35.dll
+-a----         10/2/2007  10:56 AM         508264 d3dx10_36.dll
+-a----          2/5/2008  11:07 PM         529424 d3dx10_37.dll
+-a----         5/30/2008   3:11 PM         540688 d3dx10_38.dll
+-a----         7/10/2008  12:00 PM         540688 d3dx10_39.dll
+-a----        10/15/2008   7:22 AM         519000 d3dx10_40.dll
+-a----          3/9/2009   4:27 PM         520544 d3dx10_41.dll
+-a----          9/4/2009   6:29 PM         523088 d3dx10_42.dll
+-a----         5/26/2010  12:41 PM         511328 d3dx10_43.dll
+-a----          9/4/2009   6:29 PM         285024 d3dx11_42.dll
+-a----         5/26/2010  12:41 PM         276832 d3dx11_43.dll
+-a----          2/5/2005   7:45 PM        3544272 d3dx9_24.dll
+-a----         3/18/2005   5:19 PM        3823312 d3dx9_25.dll
+-a----         5/26/2005   4:34 PM        3767504 d3dx9_26.dll
+-a----         7/22/2005   8:59 PM        3807440 d3dx9_27.dll
+-a----         12/5/2005   6:09 PM        3815120 d3dx9_28.dll
+-a----          2/3/2006   8:43 AM        3830992 d3dx9_29.dll
+-a----         3/31/2006  12:41 PM        3927248 d3dx9_30.dll
+-a----         9/28/2006   5:05 PM        3977496 d3dx9_31.dll
+-a----        11/29/2006   1:06 PM        4398360 d3dx9_32.dll
+-a----         3/12/2007   5:42 PM        4494184 d3dx9_33.dll
+-a----         5/16/2007   5:45 PM        4496232 d3dx9_34.dll
+-a----         7/19/2007   7:14 PM        5073256 d3dx9_35.dll
+-a----        10/12/2007   4:14 PM        5081608 d3dx9_36.dll
+-a----          3/5/2008   3:56 PM        4910088 D3DX9_37.dll
+-a----         5/30/2008   3:11 PM        4991496 D3DX9_38.dll
+-a----         7/10/2008  12:00 PM        4992520 D3DX9_39.dll
+-a----        10/15/2008   7:22 AM        5631312 D3DX9_40.dll
+-a----          3/9/2009   4:27 PM        5425496 D3DX9_41.dll
+-a----          9/4/2009   6:29 PM        2475352 D3DX9_42.dll
+-a----         5/26/2010  12:41 PM        2401112 D3DX9_43.dll
+-a----         8/15/2026  12:34 PM          26072 d4d78066-e6db-44b7-b5cd-2eb82dce620c_HyperV-ComputeLegacy.dll
+-a----        11/12/2025   3:24 PM         143360 dab.dll
+-a----         8/15/2026  12:35 PM          32768 dabapi.dll
+-a----        10/18/2026  10:25 PM         212992 dafAspInfraProvider.dll
+-a----        10/18/2026  10:25 PM         438272 dafBth.dll
+-a----        10/18/2026  10:25 PM         149216 DafDnsSd.dll
+-a----        10/18/2026  10:25 PM         180224 dafDockingProvider.dll
+-a----        10/18/2026  10:25 PM         286720 DAFESCL.dll
+-a----        10/18/2026  10:25 PM         131072 DafGip.dll
+-a----        10/18/2026  10:25 PM         401408 DAFIPP.dll
+-a----        10/18/2026  10:25 PM         376832 DAFMCP.dll
+-a----        10/18/2026  10:25 PM         294912 dafpos.dll
+-a----        10/18/2026  10:25 PM         155648 DafPrintProvider.dll
+-a----        10/18/2026  10:25 PM         225280 dafupnp.dll
+-a----        10/18/2026  10:25 PM         167936 dafWCN.dll
+-a----        10/18/2026  10:25 PM         385024 dafWfdProvider.dll
+-a----        10/18/2026  10:25 PM         147456 DAFWiProv.dll
+-a----        10/18/2026  10:25 PM         339968 DAFWSD.dll
+-a----         9/14/2026   7:00 PM         147456 DAMediaManager.dll
+-a----         8/15/2026  12:36 PM         323584 DaOtpCredentialProvider.dll
+-a----        10/18/2026  10:25 PM         749568 das.dll
+-a----        10/18/2026  10:25 PM         200704 dasHost.exe
+-a----        10/18/2026  10:25 PM          98304 dataclen.dll
+-a----        10/18/2026  10:25 PM         372736 DataExchange.dll
+-a----        10/18/2026  10:25 PM         298392 DataExchangeHost.exe
+-a----        10/18/2026  10:25 PM         200704 DataStoreCacheDumpTool.exe
+-a----          4/1/2024   3:22 AM         131072 davclnt.dll
+-a----          4/1/2024   3:22 AM          61440 davhlpr.dll
+-a----         9/14/2026   7:00 PM         417792 DavSyncProvider.dll
+-a----        10/18/2026  10:25 PM        1183744 daxexec.dll
+-a----        10/18/2026  10:25 PM         241664 dbgcore.dll
+-a----          4/1/2024   3:22 AM        7225344 dbgeng.dll
+-a----        10/18/2026  10:25 PM        2317640 dbghelp.dll
+-a----          4/1/2024   3:22 AM        1142784 DbgModel.dll
+-a----         8/15/2026  12:36 PM         147456 dbnetlib.dll
+-a----          4/1/2024   3:22 AM          49152 dbnmpntw.dll
+-a----        10/18/2026  10:25 PM         172032 dccw.exe
+-a----        10/18/2026  10:25 PM          40960 dciman32.dll
+-a----        10/18/2026  10:25 PM        1973576 dcntel.dll
+-a----          4/1/2024   3:22 AM          32768 dcomcnfg.exe
+-a----        10/18/2026  10:25 PM        2299904 dcomp.dll
+-a----        10/18/2026  10:25 PM        1302528 dcsvc.dll
+-a----          4/1/2024   3:22 AM          54592 DDACLSys.dll
+-a----         2/15/2025   6:57 PM          53248 DdcClaimsApi.dll
+-a----        10/18/2026  10:25 PM         102400 DdcComImplementationsDesktop.dll
+-a----         9/14/2026   7:00 PM         503808 DDDS.dll
+-a----        10/18/2026  10:25 PM         389120 ddisplay.dll
+-a----         9/14/2026   7:00 PM          69632 ddodiag.exe
+-a----         8/15/2026  12:35 PM          49152 DDOIProxy.dll
+-a----          4/1/2024   3:22 AM          71600 DDORes.dll
+-a----         8/15/2026  12:35 PM         630784 ddraw.dll
+-a----         8/18/2025  11:23 PM          73728 ddrawex.dll
+-a----        10/18/2026  10:25 PM          81920 declaredconfiguration.dll
+-a----          4/1/2024   3:22 AM           4802 DefaultAccountTile.png
+-a----         2/15/2025   6:57 PM          42696 DefaultDeviceManager.dll
+-a----          4/1/2024   3:22 AM        4227116 DefaultHrtfs.bin
+-a----          4/1/2024   3:22 AM          53248 DefaultPrinterProvider.dll
+-a----          4/1/2024   3:24 AM            858 DefaultQuestions.json
+-a----         8/15/2026  12:35 PM         241664 Defrag.exe
+-a----         8/15/2026  12:35 PM          40960 defragproxy.dll
+-a----         8/15/2026  12:35 PM          12288 defragres.dll
+-a----         8/15/2026  12:35 PM         565248 defragsvc.dll
+-a----        10/18/2026  10:25 PM          57344 delegatorprovider.dll
+-a----          4/1/2024   3:22 AM          20268 DeliveryOptimizationMIProv.mof
+-a----          4/1/2024   3:22 AM           2044 DeliveryOptimizationMIProvUninstall.mof
+-a----          4/1/2024   3:22 AM          61440 deploymentcsphelper.exe
+-a----          9/9/2025   8:44 PM          98304 deploymentcsps.dll
+-a----        10/18/2026  10:25 PM         237568 desk.cpl
+-a----         8/18/2025  11:23 PM          77824 deskadp.dll
+-a----         2/15/2025   6:57 PM          69632 deskmon.dll
+-a----        10/18/2026  10:25 PM         159744 desktopimgdownldr.exe
+-a----         4/19/2026  11:45 PM          73728 DesktopShellAppStateContract.dll
+-a----        10/18/2026  10:25 PM         839680 DesktopShellExt.dll
+-a----        10/18/2026  10:25 PM         352256 DesktopSwitcherDataModel.dll
+-a----          4/1/2024   3:22 AM           3944 DetailedReading-Default.xml
+-a----        10/18/2026  10:25 PM         211704 DevDispItemProvider.dll
+-a----        10/18/2026  10:25 PM         634880 DeveloperOptionsSettingsHandlers.dll
+-a----         4/19/2026  11:44 PM         146176 devenum.dll
+-a----        10/18/2026  10:25 PM         307600 deviceaccess.dll
+-a----        10/18/2026  10:25 PM         140896 deviceassociation.dll
+-a----        10/18/2026  10:25 PM         167264 DeviceCensus.exe
+-a----        10/18/2026  10:25 PM         266240 DeviceCenter.dll
+-a----          9/9/2025   8:44 PM         110592 DeviceCompanionAppInstall.dll
+-a----         9/14/2026   7:01 PM          98304 DeviceCredential.dll
+-a----         9/14/2026   7:01 PM         122880 DeviceCredentialDeployment.exe
+-a----        10/18/2026  10:25 PM         327680 DeviceDirectoryClient.dll
+-a----          4/1/2024   3:22 AM          61440 DeviceDisplayStatusManager.dll
+-a----        10/18/2026  10:25 PM         151552 DeviceDriverRetrievalClient.dll
+-a----          4/1/2024   3:22 AM          49152 DeviceEject.exe
+-a----        10/18/2026  10:25 PM         188416 DeviceElementSource.dll
+-a----        10/18/2026  10:25 PM         577536 DeviceEnroller.exe
+-a----        10/18/2026  10:25 PM           4985 DeviceFeatureDDF.json
+-a----        10/18/2026  10:25 PM        2611712 DeviceFlows.DataModel.dll
+-a----         8/18/2025  11:23 PM         151552 DeviceMetadataRetrievalClient.dll
+-a----         9/14/2026   7:01 PM         278528 devicengccredprov.dll
+-a----         9/14/2026   7:00 PM         339968 DevicePairing.dll
+-a----        10/18/2026  10:25 PM         184320 DevicePairingExperienceMEM.dll
+-a----         9/14/2026   7:00 PM         143360 DevicePairingFolder.dll
+-a----         4/17/2025   9:07 PM          49152 DevicePairingProxy.dll
+-a----         9/14/2026   7:00 PM         122880 DevicePairingWizard.exe
+-a----          4/1/2024   3:22 AM          94208 DeviceProperties.exe
+-a----        10/18/2026  10:25 PM         150856 DeviceReactivation.dll
+-a----         3/13/2025   5:26 PM         188416 deviceregistration.dll
+-a----        10/18/2026  10:25 PM         454656 DeviceSetupManager.dll
+-a----        10/18/2026  10:25 PM         114688 DeviceSetupManagerAPI.dll
+-a----         9/14/2026   7:00 PM          90112 DeviceSetupStatusProvider.dll
+-a----        10/18/2026  10:25 PM         724992 DevicesFlowBroker.dll
+-a----        10/18/2026  10:25 PM         221184 DeviceSoftwareInstallationClient.dll
+-a----        10/18/2026  10:25 PM         192512 DeviceUpdateAgent.dll
+-a----         8/15/2026  12:35 PM          36864 DeviceUxRes.dll
+-a----        10/18/2026  10:25 PM        1523040 devinv.dll
+-a----          4/1/2024   3:22 AM         145622 devmgmt.msc
+-a----        10/18/2026  10:25 PM         913408 devmgr.dll
+-a----          4/1/2024   3:22 AM          13091 DevModeRunAsUserConfig.msc
+-a----        10/18/2026  10:25 PM         215920 devobj.dll
+-a----        10/18/2026  10:25 PM         200704 DevPropMgr.dll
+-a----        10/18/2026  10:25 PM          94208 DevQueryBroker.dll
+-a----        10/18/2026  10:25 PM          90112 devrtl.dll
+-a----         2/15/2025   6:57 PM          77824 dfdts.dll
+-a----         2/15/2025   6:57 PM          77824 DFDWiz.exe
+-a----         8/15/2026  12:35 PM         143360 dfrgui.exe
+-a----         2/15/2025   6:57 PM          94208 dfscli.dll
+-a----         2/15/2025   6:57 PM        1613824 dfshim.dll
+-a----         2/15/2025   6:57 PM         102400 DfsShlEx.dll
+-a----        10/18/2026  10:25 PM          73056 dhcpcmonitor.dll
+-a----        10/18/2026  10:25 PM         486728 dhcpcore.dll
+-a----        10/18/2026  10:25 PM         355680 dhcpcore6.dll
+-a----        10/18/2026  10:25 PM         171408 dhcpcsvc.dll
+-a----        10/18/2026  10:25 PM         142712 dhcpcsvc6.dll
+-a----         2/15/2025   6:57 PM         245760 dhcpsapi.dll
+-a----        10/18/2026  10:25 PM        1114112 DiagCpl.dll
+-a----        10/18/2026  10:25 PM          98304 diagnosticdataquery.dll
+-a----        11/12/2025   3:25 PM          71704 DiagnosticDataSettings.dll
+-a----         4/19/2026  11:44 PM         131072 DiagnosticInvoker.dll
+-a----        10/18/2026  10:25 PM         344064 DiagnosticLogCSP.dll
+-a----        10/18/2026  10:25 PM        1212416 diagperf.dll
+-a----         9/14/2026   7:00 PM         229376 DiagSvc.dll
+-a----        10/18/2026  10:25 PM        4882432 diagtrack.dll
+-a----         4/19/2026  11:44 PM         253952 dialclient.dll
+-a----          9/9/2025   8:44 PM          69632 dialer.exe
+-a----         9/14/2026   7:00 PM         233472 dialserver.dll
+-a----         9/14/2026   7:00 PM         446464 DictationManager.dll
+-a----         4/17/2025   9:07 PM         303104 difxapi.dll
+-a----        10/18/2026  10:25 PM          98304 dimsjob.dll
+-a----        10/18/2026  10:25 PM         102400 dimsroam.dll
+-a----         4/19/2026  11:44 PM         204800 dinput.dll
+-a----         8/15/2026  12:35 PM         266240 dinput8.dll
+-a----          4/1/2024   3:22 AM          49152 Direct2DDesktop.dll
+-a----        10/18/2026  10:25 PM         691024 directmanipulation.dll
+-a----          9/9/2025   8:44 PM         834048 DirectML.Debug.dll
+-a----        10/18/2026  10:25 PM       10239288 directml.dll
+-a----         4/19/2026  11:44 PM         150312 directsr.dll
+-a----        10/18/2026  10:25 PM         407624 directxdatabasehelper.dll
+-a----        10/18/2026  10:25 PM         176128 directxdatabaseupdater.exe
+-a----        10/18/2026  10:25 PM         360448 discan.dll
+-a----          4/1/2024   3:22 AM          47682 diskmgmt.msc
+-a----         2/15/2025   6:57 PM         176128 diskpart.exe
+-a----        10/18/2026  10:25 PM          49152 diskperf.exe
+-a----          4/1/2024   3:22 AM         356352 diskraid.exe
+-a----          4/1/2024   3:22 AM          89761 DiskSnapshot.conf
+-a----         2/15/2025   6:57 PM          98304 DiskSnapshot.exe
+-a----         4/19/2026  11:44 PM          73728 diskusage.exe
+-a----        10/18/2026  10:25 PM         339288 Dism.exe
+-a----        10/18/2026  10:25 PM        1367360 DismApi.dll
+-a----        10/18/2026  10:25 PM        1200128 DispBroker.Desktop.dll
+-a----        10/18/2026  10:25 PM         561152 DispBroker.dll
+-a----        10/18/2026  10:25 PM         192512 dispdiag.exe
+-a----        10/18/2026  10:25 PM         860160 dispdiag2.dll
+-a----        10/18/2026  10:25 PM          90112 dispex.dll
+-a----        10/18/2026  10:25 PM         204800 Display.dll
+-a----         9/14/2026   7:00 PM         167936 DisplayManager.dll
+-a----         2/15/2025   6:57 PM        1877392 DisplaySwitch.exe
+-a----          4/1/2024   3:22 AM            602 DisplaySystemToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM            346 DisplaySystemToastIcon.png
+-a----          4/1/2024   3:22 AM          24576 djctq.rs
+-a----         8/15/2026  12:37 PM         106496 djoin.exe
+-a----        10/18/2026  10:25 PM          93536 dllhost.exe
+-a----        10/18/2026  10:25 PM          73728 dllhst3g.exe
+-a----        10/18/2026  10:25 PM         360448 dlnashext.dll
+-a----        10/18/2026  10:25 PM          28672 DMAlertListener.ProxyStub.dll
+-a----         4/19/2026  11:44 PM          94208 DmApiSetExtImplDesktop.dll
+-a----         8/18/2025  11:23 PM          12288 DMAppsRes.dll
+-a----        10/18/2026  10:25 PM         204800 dmcertinst.exe
+-a----        11/12/2025   3:24 PM          65536 dmcfghost.exe
+-a----         4/19/2026  11:44 PM         135168 dmcfgutils.dll
+-a----        10/18/2026  10:25 PM         172032 dmclient.exe
+-a----        10/18/2026  10:25 PM        1207888 dmcmnutils.dll
+-a----          4/1/2024   3:22 AM          36864 dmcommandlineutils.dll
+-a----        10/18/2026  10:25 PM         225280 dmcsps.dll
+-a----         8/18/2025  11:23 PM         376832 dmdlgs.dll
+-a----          9/9/2025   8:44 PM         290816 dmdskmgr.dll
+-a----         8/18/2025  11:23 PM          12288 dmdskres.dll
+-a----         8/18/2025  11:23 PM          12288 dmdskres2.dll
+-a----        10/18/2026  10:25 PM        1097728 dmenrollengine.dll
+-a----        10/18/2026  10:25 PM         380928 dmenterprisediagnostics.dll
+-a----         8/18/2025  11:23 PM          73728 dmintf.dll
+-a----          4/1/2024   3:22 AM          40960 dmiso8601utils.dll
+-a----        10/18/2026  10:25 PM         106496 dmloader.dll
+-a----          4/1/2024   3:22 AM          53248 DmNotificationBroker.exe
+-a----         8/15/2026  12:36 PM          73728 dmocx.dll
+-a----          9/9/2025   8:44 PM          45056 dmoleaututils.dll
+-a----         9/14/2026   7:00 PM          61440 DmOmaCpMo.exe
+-a----        10/18/2026  10:25 PM        1630208 DmOsConfig.dll
+-a----         4/19/2026  11:44 PM          69632 dmprocessxmlfiltered.dll
+-a----          9/9/2025   8:44 PM          53248 dmpushproxy.dll
+-a----        10/18/2026  10:25 PM         376832 DMPushRouterCore.dll
+-a----         3/13/2025   5:26 PM        3539928 DMRCDecoder.dll
+-a----        10/18/2026  10:25 PM         595184 DMRServer.dll
+-a----         9/14/2026   7:00 PM         147456 dmsynth.dll
+-a----        10/18/2026  10:25 PM         208896 dmusic.dll
+-a----         8/18/2025  11:23 PM          53248 dmutil.dll
+-a----          4/1/2024   3:22 AM         184320 dmvdsitf.dll
+-a----         2/15/2025   6:57 PM         155648 dmview.ocx
+-a----        10/18/2026  10:25 PM         135168 dmwappushsvc.dll
+-a----         8/15/2026  12:36 PM         172032 dmwmicsp.dll
+-a----        10/18/2026  10:25 PM         172032 dmxmlhelputils.dll
+-a----        10/18/2026  10:25 PM        1445488 dnsapi.dll
+-a----         8/15/2026  12:35 PM          61440 dnscacheugc.exe
+-a----        10/18/2026  10:25 PM         176128 DnsClientCSP.dll
+-a----         9/14/2026   7:00 PM         169448 dnscmmc.dll
+-a----          4/1/2024   3:22 AM          32768 dnsext.dll
+-a----        10/18/2026  10:25 PM         757712 dnsrslvr.dll
+-a----        10/18/2026  10:25 PM         192512 Docking.VirtualInput.dll
+-a----         2/15/2025   6:57 PM          36864 DockInterface.ProxyStub.dll
+-a----        10/18/2026  10:25 PM        1734496 doclient.dll
+-a----          9/9/2025   8:44 PM          73728 docprop.dll
+-a----          4/1/2024   3:22 AM          86016 DocumentPerformanceEvents.dll
+-a----        10/18/2026  10:25 PM        1332952 DolbyDecMFT.dll
+-a----         8/18/2025  11:23 PM          67608 DolbyDecMFT_redirect.dll
+-a----        10/18/2026  10:25 PM         151552 domgmt.dll
+-a----         8/15/2026  12:35 PM         635368 domiprov.dll
+-a----        10/18/2026  10:25 PM         401408 dosettings.dll
+-a----          4/1/2024   3:22 AM          45056 doskey.exe
+-a----        10/18/2026  10:25 PM         122880 dosvc.dll
+-a----        10/18/2026  10:25 PM         204800 dot3api.dll
+-a----        12/10/2025   2:43 PM          94208 dot3cfg.dll
+-a----        10/18/2026  10:25 PM         118784 dot3gpclnt.dll
+-a----        10/18/2026  10:25 PM         331776 dot3gpui.dll
+-a----        10/18/2026  10:25 PM         131072 dot3msm.dll
+-a----        10/18/2026  10:25 PM         417792 dot3svc.dll
+-a----        10/18/2026  10:25 PM         352256 dot3ui.dll
+-a----         8/15/2026  12:35 PM          40960 dpapi.dll
+-a----          4/1/2024   3:22 AM         102400 dpapimig.exe
+-a----        10/18/2026  10:25 PM         110592 dpapiprovider.dll
+-a----        10/18/2026  10:25 PM         364544 dpapisrv.dll
+-a----          4/1/2024   3:22 AM         102400 DpiScaling.exe
+-a----         9/14/2026   7:00 PM         139264 dplcsp.dll
+-a----         8/18/2025  11:23 PM          36864 dpnaddr.dll
+-a----         8/18/2025  11:33 PM          36864 dpnathlp.dll
+-a----         8/18/2025  11:23 PM          36864 dpnet.dll
+-a----         8/18/2025  11:33 PM          36864 dpnhpast.dll
+-a----         8/18/2025  11:33 PM          36864 dpnhupnp.dll
+-a----         8/18/2025  11:33 PM          36864 dpnlobby.dll
+-a----         8/18/2025  11:23 PM          36864 dpnsvr.exe
+-a----         8/15/2026  12:35 PM         188416 dps.dll
+-a----        10/18/2026  10:25 PM        1113416 dpx.dll
+-a----         4/19/2026  11:43 PM          77824 DragDropExperienceDataExchangeDelegated.dll
+-a----         8/18/2025  11:23 PM         106496 driverquery.exe
+-a----          4/1/2024   3:22 AM          53248 drprov.dll
+-a----        10/10/2026   4:55 AM          24929 DrtmAuthTxt.wim
+-a----        10/18/2026  10:25 PM         454656 drvinst.exe
+-a----        10/18/2026  10:25 PM         294912 drvsetup.dll
+-a----        10/18/2026  10:25 PM        1587144 drvstore.dll
+-a----         2/15/2025   6:57 PM          73728 dsauth.dll
+-a----         2/15/2025   6:57 PM         507904 DscCore.dll
+-a----         2/15/2025   6:57 PM         196608 DscCoreConfProv.dll
+-a----         4/19/2026  11:45 PM          75936 dsclient.dll
+-a----         2/15/2025   6:57 PM          45056 dscproxy.dll
+-a----         2/15/2025   6:57 PM          49152 DscTimer.dll
+-a----          9/9/2025   8:43 PM         139264 dsdmo.dll
+-a----         8/15/2026  12:35 PM         151552 dskquota.dll
+-a----        10/18/2026  10:25 PM         274432 dskquoui.dll
+-a----         8/18/2025  11:23 PM          57344 DsmUserTask.exe
+-a----        10/18/2026  10:25 PM         598016 dsound.dll
+-a----          4/1/2024   3:22 AM          53248 dsparse.dll
+-a----         2/15/2025   6:57 PM         208896 dsprop.dll
+-a----         4/19/2026  11:44 PM         212992 dsquery.dll
+-a----        10/18/2026  10:25 PM        1566328 dsreg.dll
+-a----        10/18/2026  10:25 PM         483328 dsregcmd.exe
+-a----        10/18/2026  10:25 PM          77824 dsregtask.dll
+-a----         2/15/2025   6:57 PM          55184 dsrole.dll
+-a----          4/1/2024   3:24 AM         215943 dssec.dat
+-a----        10/18/2026  10:25 PM         122880 dssec.dll
+-a----          9/9/2025   8:44 PM         187416 dssenh.dll
+-a----        10/18/2026  10:26 PM         204800 dssvc.dll
+-a----         9/14/2026   7:01 PM          40960 dstokenclean.exe
+-a----         4/19/2026  11:44 PM         176128 Dsui.dll
+-a----         2/15/2025   6:57 PM         110592 dsuiext.dll
+-a----        10/18/2026  10:25 PM          81920 dswave.dll
+-a----        10/18/2026  10:25 PM         163840 dtdump.exe
+-a----        10/18/2026  10:25 PM          94208 dtsh.dll
+-a----         9/14/2026   7:01 PM         143360 DuCsps.dll
+-a----        10/18/2026  10:25 PM        1732608 dui70.dll
+-a----        10/18/2026  10:25 PM         667648 duser.dll
+-a----        10/18/2026  10:25 PM          98304 dusmapi.dll
+-a----        10/18/2026  10:25 PM         454656 dusmsvc.dll
+-a----         4/19/2026  11:44 PM          77824 dusmtask.exe
+-a----         2/15/2025   6:57 PM          40960 dvdplay.exe
+-a----        10/18/2026  10:25 PM         135168 dwm.exe
+-a----        10/18/2026  10:25 PM         195056 dwmapi.dll
+-a----        10/18/2026  10:25 PM        4476928 dwmcore.dll
+-a----         4/19/2026  11:44 PM          98304 dwmghost.dll
+-a----        10/18/2026  10:25 PM         146808 dwminit.dll
+-a----        10/18/2026  10:25 PM         241664 dwmredir.dll
+-a----         9/14/2026   7:00 PM        1925120 dwmscene.dll
+-a----        10/18/2026  10:25 PM        2498560 DWrite.dll
+-a----        10/18/2026  10:25 PM         262144 DWWIN.EXE
+-a----        10/18/2026  10:25 PM        1191936 DXCap.exe
+-a----        10/18/2026  10:25 PM       18124800 DXCaptureReplay.dll
+-a----        10/18/2026  10:25 PM         290888 DXCore.dll
+-a----        10/18/2026  10:25 PM         450560 DXCpl.exe
+-a----        10/18/2026  10:25 PM         339968 dxdiag.exe
+-a----        10/18/2026  10:25 PM         479232 dxdiagn.dll
+-a----        10/18/2026  10:25 PM        1316248 dxgi.dll
+-a----        10/18/2026  10:25 PM         131072 dxgiadaptercache.exe
+-a----         2/15/2025   6:57 PM         151552 DXGIDebug.dll
+-a----        10/18/2026  10:25 PM         118784 dxgwdi.dll
+-a----        10/18/2026  10:25 PM        1431392 dxilconv.dll
+-a----         8/18/2025  11:23 PM          28672 dxmasf.dll
+-a----         8/15/2026  12:35 PM         499712 DXP.dll
+-a----         8/15/2026  12:35 PM          61440 dxpps.dll
+-a----         9/14/2026   7:00 PM         311296 Dxpserver.exe
+-a----         4/19/2026  11:44 PM         315392 DxpTaskSync.dll
+-a----          9/9/2025   8:44 PM         475136 dxtmsft.dll
+-a----         9/14/2026   7:00 PM         217088 DXToolsMonitor.dll
+-a----        10/18/2026  10:25 PM        2023424 DXToolsOfflineAnalysis.dll
+-a----         2/15/2025   6:55 PM          96256 DxToolsReportGenerator.dll
+-a----         9/14/2026   7:00 PM         192512 DXToolsReporting.dll
+-a----          9/9/2025   8:44 PM         299008 dxtrans.dll
+-a----        10/18/2026  10:25 PM         211704 dxva2.dll
+-a----          4/1/2024   3:22 AM         745552 DynamicLong.bin
+-a----          4/1/2024   3:22 AM         515152 DynamicMedium.bin
+-a----          4/1/2024   3:22 AM         323152 DynamicShort.bin
+-a----         9/14/2026   7:00 PM          98304 dynamoapi.dll
+-a----        10/18/2026  10:25 PM         110592 EAMProgressHandler.dll
+-a----        10/18/2026  10:25 PM          40960 Eap3Host.exe
+-a----        10/18/2026  10:25 PM         331776 eapp3hst.dll
+-a----        10/18/2026  10:25 PM         327680 eappcfg.dll
+-a----        10/18/2026  10:25 PM         327680 eappcfgui.dll
+-a----        10/18/2026  10:25 PM         126976 eappgnui.dll
+-a----        10/18/2026  10:25 PM         360448 eapphost.dll
+-a----        10/18/2026  10:25 PM         122880 eappprxy.dll
+-a----        10/18/2026  10:25 PM         126976 eapprovp.dll
+-a----        10/18/2026  10:25 PM         319488 eapputil.dll
+-a----        10/18/2026  10:25 PM         192512 eapsimextdesktop.dll
+-a----        10/18/2026  10:25 PM         184320 eapsvc.dll
+-a----        10/18/2026  10:25 PM         229376 EapTeapAuth.dll
+-a----        10/18/2026  10:25 PM         188416 EapTeapConfig.dll
+-a----         4/19/2026  11:44 PM         139264 EapTeapExt.dll
+-a----          4/1/2024   3:22 AM           2193 EarbudsSystemToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM           2296 EarbudsSystemToastIcon.png
+-a----          4/1/2024   3:22 AM          45056 easconsent.dll
+-a----        10/18/2026  10:25 PM         319488 EaseOfAccessDialog.exe
+-a----         8/15/2026  12:36 PM         100728 easinvoker.exe
+-a----         8/18/2025  11:23 PM          49152 easinvoker.proxystub.dll
+-a----         4/19/2026  11:44 PM          94208 EASPolicyManagerBrokerHost.exe
+-a----         3/31/2024  12:54 PM          36864 EasPolicyManagerBrokerPS.dll
+-a----        10/18/2026  10:25 PM         204800 easwrt.dll
+-a----         9/14/2026   7:00 PM          69632 EcoScoreTask.dll
+-a----         9/14/2026   7:00 PM          14689 ecoscore_config.json
+-a----         9/14/2026   7:00 PM        1835008 edgeangle.dll
+-a----        10/18/2026  10:25 PM        3403776 EdgeContent.dll
+-a----        10/18/2026  10:25 PM       26030080 edgehtml.dll
+-a----        10/18/2026  10:25 PM         438272 edgeIso.dll
+-a----        10/18/2026  10:25 PM         847872 EdgeManager.dll
+-a----        10/18/2026  10:25 PM         146760 EdgeResetPlugin.dll
+-a----        10/14/2025   4:33 PM         266800 edit.exe
+-a----        10/18/2026  10:25 PM         139264 EditBufferTestHook.dll
+-a----        10/18/2026  10:25 PM         257584 EditionUpgradeHelper.dll
+-a----        10/18/2026  10:25 PM         315928 EditionUpgradeManagerObj.dll
+-a----         4/19/2026  11:44 PM         163840 edpauditapi.dll
+-a----        10/18/2026  10:25 PM         167936 EDPCleanup.exe
+-a----         9/14/2026   7:00 PM         188416 edpcsp.dll
+-a----         4/19/2026  11:44 PM          98304 edpnotify.exe
+-a----        10/18/2026  10:25 PM         147456 edptask.dll
+-a----         9/14/2026   7:00 PM         167936 edputil.dll
+-a----        10/18/2026  10:25 PM         143360 EduPrintProv.exe
+-a----        10/18/2026  10:25 PM         339968 eeprov.dll
+-a----        10/18/2026  10:25 PM         118784 eeutil.dll
+-a----        10/18/2026  10:25 PM         180224 efsadu.dll
+-a----        10/18/2026  10:25 PM        1277280 efscore.dll
+-a----        10/18/2026  10:25 PM         126976 efsext.dll
+-a----        10/18/2026  10:25 PM         147456 efslsaext.dll
+-a----        10/18/2026  10:25 PM         122880 efssvc.dll
+-a----          4/1/2024   3:22 AM          40960 efsui.exe
+-a----         9/14/2026   7:00 PM         180224 efsutil.dll
+-a----         9/14/2026   7:01 PM         782336 efswrt.dll
+-a----         3/11/2026   6:04 PM         151552 EhStorAPI.dll
+-a----         2/15/2025   6:57 PM         151552 EhStorAuthn.exe
+-a----         2/15/2025   6:57 PM         139264 EhStorPwdMgr.dll
+-a----        10/18/2026  10:25 PM         266240 EhStorShell.dll
+-a----          9/9/2025   8:44 PM         241664 els.dll
+-a----         2/15/2025   6:57 PM          98304 ELSCore.dll
+-a----          4/1/2024   3:22 AM         159744 elshyph.dll
+-a----         9/14/2026   7:00 PM         733184 elslad.dll
+-a----         2/15/2025   6:57 PM          53248 elsTrans.dll
+-a----         9/14/2026   7:01 PM        1110016 EmailApis.dll
+-a----        10/18/2026  10:25 PM         208896 embeddedmodesvc.dll
+-a----         4/19/2026  11:43 PM          77824 embeddedmodesvcapi.dll
+-a----        10/18/2026  10:25 PM         102400 EmojiDS.dll
+-a----         2/15/2025   6:57 PM          61440 encapi.dll
+-a----        10/18/2026  10:25 PM         921600 energy.dll
+-a----        10/18/2026  10:25 PM         458752 energyprov.dll
+-a----        11/12/2025   3:24 PM          53248 energytask.dll
+-a----        10/18/2026  10:25 PM          77824 enrollmentapi.dll
+-a----        10/18/2026  10:25 PM         167936 EnterpriseAPNCsp.dll
+-a----         9/14/2026   7:00 PM          45056 EnterpriseAppMgmtClient.dll
+-a----        10/18/2026  10:25 PM         667648 EnterpriseAppMgmtSvc.dll
+-a----        10/18/2026  10:25 PM        2523136 enterprisecsps.dll
+-a----        10/18/2026  10:25 PM         131072 EnterpriseDesktopAppMgmtCSP.dll
+-a----          4/1/2024   3:22 AM          28672 enterpriseetw.dll
+-a----         9/14/2026   7:00 PM         311296 EnterpriseModernAppMgmtCSP.dll
+-a----        10/18/2026  10:25 PM         135168 enterpriseresourcemanager.dll
+-a----        10/18/2026  10:25 PM         176128 EoAExperiences.exe
+-a----         8/15/2026  12:36 PM         110592 eqossnap.dll
+-a----         4/19/2026  11:43 PM         200704 ErrorDetails.dll
+-a----        12/10/2025   2:42 PM          73728 ErrorDetailsCore.dll
+-a----        10/18/2026  10:25 PM         479232 es.dll
+-a----        10/18/2026  10:25 PM         208896 EsclProtocol.dll
+-a----        10/18/2026  10:25 PM         327680 EsclScan.dll
+-a----        10/18/2026  10:25 PM         204800 EsclWiaDriver.dll
+-a----        10/18/2026  10:25 PM          81920 EsdSip.dll
+-a----         3/11/2026   6:04 PM        4313088 esent.dll
+-a----         2/15/2025   6:57 PM          94208 esentprf.dll
+-a----         4/17/2025   9:07 PM         847872 esentutl.exe
+-a----         4/17/2025   9:07 PM         700416 esevss.dll
+-a----        10/18/2026  10:25 PM         172032 eShims.dll
+-a----        12/10/2025   2:43 PM          62872 esimtool.exe
+-a----          4/1/2024   3:22 AM          40960 esrb.rs
+-a----        10/18/2026  10:25 PM         401408 EthernetMediaManager.dll
+-a----          4/1/2024   3:22 AM          12288 ETWCoreUIComponentsResources.dll
+-a----          4/1/2024   3:22 AM         102400 ETWESEProviderResources.dll
+-a----        11/12/2025   3:24 PM          77824 EtwRundown.dll
+-a----         4/19/2026  11:44 PM         380928 eudcedit.exe
+-a----        10/18/2026  10:25 PM         200704 eUICCsCSP.dll
+-a----         9/14/2026   7:00 PM         106496 EventAggregation.dll
+-a----          9/9/2025   8:44 PM          49152 eventcls.dll
+-a----         8/18/2025  11:23 PM          69632 eventcreate.exe
+-a----        10/18/2026  10:25 PM          18120 EventViewer_EventDetails.xsl
+-a----        10/18/2026  10:25 PM         106496 eventvwr.exe
+-a----          4/1/2024   3:22 AM         145127 eventvwr.msc
+-a----        10/18/2026  10:25 PM         824424 evr.dll
+-a----        10/18/2026  10:25 PM         403464 ExecModelClient.dll
+-a----          4/1/2024   3:22 AM          81920 execmodelproxy.dll
+-a----          4/1/2024   3:22 AM          73728 expand.exe
+-a----        10/18/2026  10:25 PM        3268608 ExplorerFrame.dll
+-a----          9/9/2025   8:44 PM         290816 ExSMime.dll
+-a----         2/15/2025   6:57 PM          61440 extrac32.exe
+-a----         2/15/2025   6:57 PM          53248 ExtrasXmlParser.dll
+-a----         8/15/2026  12:34 PM          26088 f1db7d81-95be-4911-935a-8ab71629112a_HyperV-IsolatedVM.dll
+-a----          4/1/2024   3:22 AM          24576 f3ahvoas.dll
+-a----         8/15/2026  12:34 PM          26072 f989b52d-f928-44a3-9bf1-bf0c1da6a0d6_HyperV-DeviceVirtualization.dll
+-a----        10/18/2026  10:25 PM         900472 facecredentialprovider.dll
+-a----         6/25/2024   6:23 PM         412992 Face_Beauty_DLL_X64.dll
+-a----        10/18/2026  10:25 PM        1133912 Facilitator.dll
+-a----         9/14/2026   7:01 PM         114688 Family.Authentication.dll
+-a----        10/18/2026  10:25 PM         180224 Family.Cache.dll
+-a----         9/14/2026   7:01 PM         151552 Family.Client.dll
+-a----        10/18/2026  10:25 PM         225280 Family.SyncEngine.dll
+-a----          4/1/2024   3:22 AM          40960 FamilySafetyExt.dll
+-a----        10/18/2026  10:25 PM         570200 Faultrep.dll
+-a----        10/18/2026  10:25 PM          94208 FaxPrinterInstaller.dll
+-a----          4/1/2024   3:22 AM          49152 fc.exe
+-a----        10/18/2026  10:25 PM        1478656 fcon.dll
+-a----         9/14/2026   7:00 PM          98304 fdBth.dll
+-a----          4/1/2024   3:22 AM          36864 fdBthProxy.dll
+-a----         9/14/2026   7:00 PM          57344 FdDevQuery.dll
+-a----         2/15/2025   6:57 PM         184320 fde.dll
+-a----         9/14/2026   7:00 PM         184320 fdeploy.dll
+-a----          4/1/2024   3:22 AM          45056 fdPHost.dll
+-a----         9/14/2026   7:00 PM          81920 fdPnp.dll
+-a----         9/14/2026   7:01 PM         217088 fdprint.dll
+-a----          4/1/2024   3:22 AM          81920 fdProxy.dll
+-a----          4/1/2024   3:22 AM          61440 FDResPub.dll
+-a----        10/18/2026  10:25 PM         167936 fdSSDP.dll
+-a----        10/18/2026  10:25 PM         131072 fdWCN.dll
+-a----         9/14/2026   7:00 PM          53248 fdWNet.dll
+-a----        10/18/2026  10:25 PM         200704 fdWSD.dll
+-a----        10/18/2026  10:25 PM         122880 featurestaging-ext-101.dll
+-a----        10/18/2026  10:25 PM         577536 featurestaging-ext-102.dll
+-a----        10/18/2026  10:25 PM          57344 featurestaging-ext-103.dll
+-a----          4/1/2024   3:22 AM          44257 FeatureToastBulldogImg.png
+-a----          4/1/2024   3:22 AM          16940 FeatureToastDlpImg.png
+-a----        10/18/2026  10:25 PM         294912 feclient.dll
+-a----        11/12/2025   3:25 PM          98304 ffbroker.dll
+-a----        10/18/2026  10:25 PM         282624 fhcat.dll
+-a----        10/18/2026  10:25 PM         425984 fhcfg.dll
+-a----        10/18/2026  10:25 PM         110592 fhcleanup.dll
+-a----        10/18/2026  10:25 PM         393216 fhcpl.dll
+-a----        10/18/2026  10:25 PM         294912 fhengine.dll
+-a----        10/18/2026  10:25 PM         131072 fhevents.dll
+-a----        10/18/2026  10:25 PM         217088 fhmanagew.exe
+-a----        10/18/2026  10:25 PM         380928 fhsettingsprovider.dll
+-a----        10/18/2026  10:25 PM         196608 fhshl.dll
+-a----        10/18/2026  10:25 PM         131072 fhsrchapi.dll
+-a----        10/18/2026  10:25 PM         118784 fhsrchph.dll
+-a----        10/18/2026  10:25 PM         217088 fhsvc.dll
+-a----        10/18/2026  10:25 PM          90112 fhsvcctl.dll
+-a----        10/18/2026  10:25 PM         114688 fhtask.dll
+-a----         2/15/2025   6:57 PM         133120 fhuxadapter.dll
+-a----         2/15/2025   6:57 PM          17408 fhuxapi.dll
+-a----         2/15/2025   6:57 PM          47616 fhuxcommon.dll
+-a----         9/14/2026   7:00 PM         102400 fhuxgraphics.dll
+-a----         2/15/2025   6:57 PM         902656 fhuxpresentation.dll
+-a----        10/18/2026  10:25 PM         290816 fidocredprov.dll
+-a----         8/15/2026  12:35 PM          61440 FileAppxStreamingDataSource.dll
+-a----        10/18/2026  10:25 PM         176128 FileDialogBroker.exe
+-a----        10/18/2026  10:25 PM         258048 FileHistory.exe
+-a----         2/15/2025   6:57 PM         389120 filemgmt.dll
+-a----         9/14/2026   7:00 PM         229376 FilterDS.dll
+-a----          4/1/2024   3:22 AM          40960 find.exe
+-a----          9/9/2025   8:44 PM          90112 findnetprinters.dll
+-a----        11/12/2025   3:24 PM          65536 findstr.exe
+-a----        10/18/2026  10:25 PM          45056 finger.exe
+-a----         9/14/2026   7:01 PM         151552 fingerprintcredential.dll
+-a----          4/1/2024   3:22 AM          28672 Firewall.cpl
+-a----        10/18/2026  10:25 PM         708608 FirewallAPI.dll
+-a----        10/18/2026  10:25 PM         344064 FirewallControlPanel.dll
+-a----        10/18/2026  10:25 PM         278528 FirewallUX.dll
+-a----        10/18/2026  10:25 PM          40960 FirmwareAttestationServerProxyStub.dll
+-a----        10/18/2026  10:25 PM          49152 fixmapi.exe
+-a----        10/18/2026  10:25 PM        1478800 FlightSettings.dll
+-a----         2/15/2025   6:57 PM          59312 fltLib.dll
+-a----        10/18/2026  10:25 PM          53248 fltMC.exe
+-a----         9/14/2026   7:00 PM         167936 fltmgrres.dll
+-a----        10/18/2026  10:25 PM        3452928 FluencyDS.dll
+-a----          4/1/2024   3:22 AM         110592 fmapi.dll
+-a----        10/24/2022   2:04 PM        1594544 FMAPO64.dll
+-a----         9/28/2022  12:11 PM         309408 FMAPP.exe
+-a----        10/24/2022   2:04 PM        3243464 fmaudva.dll
+-a----        10/24/2022   2:04 PM        3022240 fmaudvb.dll
+-a----        10/24/2022   2:04 PM        3685312 fmaudvc.dll
+-a----        10/24/2022   2:05 PM       26667968 fmaudvd.dll
+-a----        10/24/2022   2:05 PM       35202976 fmaudve.dll
+-a----        10/24/2022   2:05 PM       43445184 fmaudvf.dll
+-a----          9/9/2025   8:44 PM          95656 fmifs.dll
+-a----         6/25/2024   6:23 PM       20307880 FMMP.dll
+-a----        10/24/2022   2:04 PM        1082288 FMPCHAPO64.dll
+-a----         9/14/2026   7:00 PM         237568 fms.dll
+-a----         9/28/2022  12:11 PM         522152 FMService64.exe
+-a----          9/4/2026   9:33 AM         110098 FMSrvice_1_Capture_reg.log
+-a----          9/4/2026   9:33 AM           2244 FMSrvice_1_Fortemedia_reg.log
+-a----          9/4/2026   9:33 AM         257632 FMSrvice_1_Render_reg.log
+-a----        10/24/2022   2:05 PM        4998272 FM_Speech_PP64.dll
+-a----        10/18/2026  10:47 PM         471768 FNTCACHE.DAT
+-a----        10/18/2026  10:25 PM        1425408 FntCache.dll
+-a----         2/15/2025   6:57 PM          73728 fodhelper.exe
+-a----         4/19/2026  11:44 PM         139264 Fondue.exe
+-a----        10/18/2026  10:25 PM         866080 fontdrvhost.exe
+-a----        10/18/2026  10:25 PM         995328 fontext.dll
+-a----         8/15/2026  12:35 PM          81920 FontGlyphAnimator.dll
+-a----          4/1/2024   3:22 AM          45056 fontgroupsoverride.dll
+-a----         2/15/2025   6:57 PM         147456 FontProvider.dll
+-a----        10/18/2026  10:25 PM         155648 fontsub.dll
+-a----         4/19/2026  11:44 PM         151552 fontview.exe
+-a----         2/15/2025   6:57 PM          73728 forfiles.exe
+-a----          4/1/2024   3:22 AM          69632 format.com
+-a----          4/1/2024   3:22 AM          45056 fpb.rs
+-a----         9/14/2026   7:01 PM         135168 fphc.dll
+-a----        11/12/2025   3:25 PM         270336 framedyn.dll
+-a----        10/18/2026  10:25 PM         319488 framedynos.dll
+-a----        10/18/2026  10:25 PM        1220608 FrameServer.dll
+-a----        10/18/2026  10:25 PM         684032 FrameServerClient.dll
+-a----        10/18/2026  10:25 PM        4706304 FrameServerCore.dll
+-a----        10/18/2026  10:25 PM         417792 FrameServerMonitor.dll
+-a----        10/18/2026  10:25 PM         319488 FrameServerMonitorClient.dll
+-a----        10/18/2026  10:25 PM         147456 frprov.dll
+-a----          4/1/2024   3:22 AM          40960 fsavailux.exe
+-a----        10/18/2026  10:25 PM         149280 FsIso.exe
+-a----          4/1/2024   3:22 AM         144909 fsmgmt.msc
+-a----        10/18/2026  10:25 PM         774144 FsNVSDeviceSource.dll
+-a----         4/19/2026  11:44 PM         172032 fsquirt.exe
+-a----         9/14/2026   7:00 PM         618496 fstx.dll
+-a----         4/19/2026  11:44 PM         280040 fsutil.exe
+-a----        10/18/2026  10:25 PM          98304 fsutilext.dll
+-a----          4/1/2024   3:22 AM          94208 fthsvc.dll
+-a----         8/15/2026  12:35 PM          90112 ftp.exe
+-a----        10/18/2026  10:25 PM         212992 fundisc.dll
+-a----        10/18/2026  10:25 PM        1474560 fveapi.dll
+-a----        10/18/2026  10:25 PM         778240 fveapibase.dll
+-a----        10/18/2026  10:25 PM          86016 fvecerts.dll
+-a----        10/18/2026  10:25 PM         413696 fvecpl.dll
+-a----         4/19/2026  11:45 PM         217088 fvenotify.exe
+-a----        10/18/2026  10:25 PM         299008 fveskybackup.dll
+-a----        10/18/2026  10:25 PM         397312 fveui.dll
+-a----        10/18/2026  10:25 PM         892928 fvewiz.dll
+-a----        10/18/2026  10:25 PM         282624 fwbase.dll
+-a----         2/15/2025   6:57 PM          86016 fwcfg.dll
+-a----        10/18/2026  10:25 PM         258048 fwmdmcsp.dll
+-a----        10/18/2026  10:25 PM         380928 fwpolicyiomgr.dll
+-a----        10/18/2026  10:25 PM         568672 FWPUCLNT.DLL
+-a----         8/15/2026  12:34 PM         139264 FwRemoteSvr.dll
+-a----         2/15/2025   6:57 PM          81920 g711codc.ax
+-a----         8/15/2026  12:34 PM         372736 GameBarPresenceWriter.exe
+-a----         2/15/2025   6:57 PM          45056 GameBarPresenceWriter.proxy.dll
+-a----         2/15/2025   6:57 PM          40960 GameChatOverlayExt.dll
+-a----        11/12/2025   3:25 PM         155648 GameChatTranscription.dll
+-a----        10/23/2025   2:28 AM         760960 GameDetect.dll
+-a----         9/14/2026   7:00 PM         424376 GameInput.dll
+-a----         9/14/2026   7:00 PM          80336 GameInputSvc.exe
+-a----        10/18/2026  10:25 PM         126976 gamemode.dll
+-a----         9/14/2026   7:01 PM        1335296 GamePanel.exe
+-a----         2/15/2025   6:57 PM          45056 GamePanelExternalHook.dll
+-a----          4/1/2024   3:22 AM          32768 gamestreamingext.dll
+-a----          4/1/2024   3:22 AM           1480 GameSystemToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM           1132 GameSystemToastIcon.png
+-a----          4/1/2024   3:22 AM          49152 gameux.dll
+-a----         4/19/2026  11:45 PM         204800 gamingtcui.dll
+-a----          4/1/2024   3:22 AM          24006 gb2312.uce
+-a----         2/15/2025   6:57 PM         151552 gcdef.dll
+-a----         8/15/2026  12:35 PM         187456 gdi32.dll
+-a----        10/18/2026  10:25 PM        1245368 gdi32full.dll
+-a----        10/18/2026  10:25 PM        1937408 GdiPlus.dll
+-a----        10/18/2026  10:25 PM        1244512 generaltel.dll
+-a----        10/18/2026  10:25 PM         172032 genpix.dll
+-a----        10/18/2026  10:25 PM         720280 GenValObj.exe
+-a----         4/19/2026  11:44 PM          98304 Geocommon.dll
+-a----        10/18/2026  10:25 PM         507904 Geolocation.dll
+-a----        10/18/2026  10:25 PM         159744 getmac.exe
+-a----          4/1/2024   3:22 AM          32768 getuname.dll
+-a----         2/15/2025   6:57 PM         528384 glmf32.dll
+-a----        10/18/2026  10:25 PM         208896 globinputhost.dll
+-a----        10/18/2026  10:25 PM         229376 glu32.dll
+-a----        10/18/2026  10:25 PM         106496 gmsaclient.dll
+-a----        10/18/2026  10:25 PM         170056 gpapi.dll
+-a----        10/18/2026  10:25 PM         131072 GPCSEWrapperCsp.dll
+-a----         8/15/2026  12:35 PM         610304 gpedit.dll
+-a----        10/18/2026  10:25 PM         102400 gpprnext.dll
+-a----         4/19/2026  11:44 PM         233472 gpresult.exe
+-a----        10/18/2026  10:25 PM        1376256 gpsvc.dll
+-a----         2/15/2025   6:57 PM          53248 gptext.dll
+-a----         8/15/2026  12:35 PM          45056 gpupdate.exe
+-a----         9/14/2026   7:00 PM         517608 gpupvdev.dll
+-a----        10/18/2026  10:25 PM         258048 GraphicsCapture.dll
+-a----        10/18/2026  10:25 PM         290816 GraphicsPerfSvc.dll
+-a----          4/1/2024   3:22 AM          28672 grb.rs
+-a----          4/1/2024   3:22 AM          45056 grpconv.exe
+-a----          4/1/2024   3:22 AM          30000 hal.dll
+-a----         8/18/2025  11:22 PM          63064 HalExtIntcLpioDMA.dll
+-a----         8/18/2025  11:22 PM          63064 HalExtIntcPseDMA.dll
+-a----         8/18/2025  11:22 PM          63072 HalExtPL080.dll
+-a----          4/1/2024   3:22 AM           1243 HandwritingSystemToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM            912 HandwritingSystemToastIcon.png
+-a----         9/14/2026   7:00 PM          90112 HanjaDS.dll
+-a----        10/18/2026  10:25 PM         159744 hascsp.dll
+-a----        10/18/2026  10:25 PM         139264 HashtagDS.dll
+-a----         8/15/2026  12:35 PM         110592 hbaapi.dll
+-a----         4/19/2026  11:44 PM          90112 hcproviders.dll
+-a----         9/14/2026   7:00 PM         366056 hcsdiag.exe
+-a----         2/15/2025   6:57 PM          79976 HdcpHandler.dll
+-a----         2/15/2025   6:57 PM         409600 hdwwiz.cpl
+-a----          4/1/2024   3:22 AM          81920 hdwwiz.exe
+-a----          4/1/2024   3:22 AM           1460 HeadphoneSystemToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM           1114 HeadphoneSystemToastIcon.png
+-a----          4/1/2024   3:22 AM           1560 HeadsetSystemToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM           1196 HeadsetSystemToastIcon.png
+-a----          4/1/2024   3:22 AM           1832 HealthSystemToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM           1660 HealthSystemToastIcon.png
+-a----          4/1/2024   3:22 AM           3500 HearingAidSystemToastIcon.contrast-white.png
+-a----          4/1/2024   3:22 AM           3887 HearingAidSystemToastIcon.png
+-a----         9/14/2026   7:00 PM         401408 HeatCore.dll
+-a----          4/1/2024   3:22 AM          32768 help.exe
+-a----          9/9/2025   8:44 PM          90112 HelpPaneProxy.dll
+-a----        10/18/2026  10:25 PM         221184 hgcpl.dll
+-a----        10/18/2026  10:25 PM         737280 hhctrl.ocx
+-a----        10/18/2026  10:25 PM          81920 hhsetup.dll
+-a----         2/15/2025   6:57 PM          61440 hid.dll
+-a----        10/18/2026  10:24 PM         344064 HidCfu.dll
+-a----        10/18/2026  10:25 PM          73728 hidphone.tsp
+-a----         8/18/2025  11:23 PM          77824 hidserv.dll
+-a----        10/18/2026  10:25 PM         163840 hlink.dll
+-a----        10/18/2026  10:25 PM         114688 hmkd.dll
+-a----        10/18/2026  10:25 PM         516000 hnetcfg.dll
+-a----         9/14/2026   7:00 PM         286664 HNetCfgClient.dll
+-a----         2/15/2025   6:57 PM          94208 hnetmon.dll
+-a----        10/18/2026  10:25 PM         249856 hnsdiag.exe
+-a----         8/18/2025  11:23 PM          45056 hnsproxy.dll
+-a----        10/18/2026  10:25 PM          40960 HOSTNAME.EXE
+-a----        10/18/2026  10:25 PM        4505600 HostNetSvc.dll
+-a----        10/18/2026  10:25 PM         102400 hotpatchutil.dll
+-a----         2/15/2025   6:57 PM         131072 hotplug.dll
+-a----        10/18/2026  10:25 PM         159096 hpatchmon.dll
+-a----        10/14/2025   4:33 PM           7210 hpatchmonTask.cmd
+-a----         4/19/2026  11:44 PM         159744 HrtfApo.dll
+-a----         2/13/2026   8:19 PM        2222552 HrtfDspCpu.dll
+-a----        10/18/2026  10:25 PM         118136 hspapi.dll
+-a----         2/15/2025   6:57 PM         438272 html.iec
+-a----         9/14/2026   7:00 PM         100728 httpapi.dll
+-a----          9/9/2025   8:44 PM          53248 httpprxc.dll
+-a----        11/12/2025   3:24 PM         147456 httpprxm.dll
+-a----          4/1/2024   3:22 AM          45056 httpprxp.dll
+-a----        10/18/2026  10:25 PM         299008 HttpsDataSource.dll
+-a----         2/15/2025   6:57 PM          65536 htui.dll
+-a----        10/18/2026  10:25 PM        1990008 hvax64.exe
+-a----        10/18/2026  10:25 PM         118088 hvhostsvc.dll
+-a----        10/18/2026  10:25 PM        2067784 hvix64.exe
+-a----        10/18/2026  10:25 PM         240992 hvloader.dll
+-a----         4/19/2026  11:43 PM          75248 HvSocket.dll
+-a----        10/18/2026  10:25 PM         466328 hwreqchk.dll
+-a----          4/1/2024   3:22 AM          61440 IA2ComProxy.dll
+-a----        10/18/2026  10:25 PM          65536 ias.dll
+-a----        10/18/2026  10:25 PM         114688 iasacct.dll
+-a----          9/9/2025   8:44 PM          98304 iasads.dll
+-a----          9/9/2025   8:44 PM         102400 iasdatastore.dll
+-a----        10/18/2026  10:25 PM         122880 iashlpr.dll
+-a----          9/9/2025   8:44 PM         533888 IasMigPlugin.dll
+-a----        10/18/2026  10:25 PM         159744 iasnap.dll
+-a----        10/18/2026  10:25 PM          81920 iaspolcy.dll
+-a----        10/18/2026  10:25 PM         299008 iasrad.dll
+-a----          9/9/2025   8:44 PM         180224 iasrecst.dll
+-a----        10/18/2026  10:25 PM         303104 iassam.dll
+-a----          9/9/2025   8:44 PM         430080 iassdo.dll
+-a----        10/18/2026  10:25 PM         212992 iassvcs.dll
+-a----         2/15/2025   6:57 PM          61440 icacls.exe
+-a----        10/18/2026  10:25 PM         183672 icfupgd.dll
+-a----         8/15/2026  12:35 PM         299008 icm32.dll
+-a----          4/1/2024   3:22 AM          12288 icmp.dll
+-a----         2/15/2025   6:57 PM          53248 icmui.dll
+-a----          4/1/2024   3:22 AM          45056 IconCodecService.dll
+-a----         2/15/2025   6:57 PM          94208 icsigd.dll
+-a----         8/15/2026  12:36 PM          51104 icsunattend.exe
+-a----        10/18/2026  10:25 PM         363864 icsvc.dll
+-a----        10/18/2026  10:25 PM         143360 icsvcext.dll
+-a----        10/18/2026  10:25 PM         347512 icsvcvss.dll
+-ar---        10/18/2026  10:25 PM        2800032 icu.dll
+-ar---         2/13/2026   8:19 PM          32768 icuin.dll
+-ar---         2/13/2026   8:19 PM          36864 icuuc.dll
+-a----        10/18/2026  10:25 PM         167936 IdCtrls.dll
+-a----          4/1/2024   3:22 AM          60458 ideograf.uce
+-a----        11/12/2025   3:25 PM         180224 IDStore.dll
+-a----        10/18/2026  10:25 PM         282624 ie4uinit.exe
+-a----        10/18/2026  10:25 PM         126976 ie4ushowIE.exe
+-a----         4/19/2026  11:44 PM         180224 IEAdvpack.dll
+-a----         9/14/2026   7:00 PM         892928 ieapfltr.dll
+-a----         9/14/2026   7:00 PM         434176 iedkcs32.dll
+-a----        10/18/2026  10:25 PM        7458816 ieframe.dll
+-a----        10/18/2026  10:25 PM          94208 iemigplugin.dll
+-a----          9/9/2025   8:44 PM         147456 iepeers.dll
+-a----         4/17/2025   9:07 PM         790528 ieproxy.dll
+-a----          4/1/2024   3:22 AM          77824 IEProxyDesktop.dll
+-a----         4/19/2026  11:44 PM          73728 iernonce.dll
+-a----        10/18/2026  10:25 PM        2954256 iertutil.dll
+-a----        10/18/2026  10:25 PM         532480 IESettingSync.exe
+-a----         4/19/2026  11:44 PM         106496 iesetup.dll
+-a----         4/19/2026  11:44 PM          73728 iesysprep.dll
+-a----        10/18/2026  10:25 PM         634880 ieui.dll
+-a----          4/1/2024   3:22 AM           3329 ieuinit.inf
+-a----         4/19/2026  11:44 PM         102400 ieUnatt.exe
+-a----        10/18/2026  10:25 PM         192512 iexpress.exe
+-a----         2/15/2025   6:57 PM          61440 ifmon.dll
+-a----        10/18/2026  10:25 PM         306504 ifsutil.dll
+-a----          4/1/2024   3:22 AM          45056 ifsutilx.dll
+-a----        10/18/2026  10:25 PM         217088 IHDS.dll
+-a----        10/18/2026  10:25 PM        1609728 IKEEXT.DLL
+-a----         2/15/2025   6:57 PM          67592 imaadp32.acm
+-a----         8/18/2025  11:23 PM         137832 imagehlp.dll
+-a----         2/13/2026   8:19 PM          12288 imageres.dll
+-a----          4/1/2024   3:22 AM          12288 imagesp1.dll
+-a----         2/15/2025   6:57 PM         163840 imapi.dll
+-a----          9/9/2025   8:44 PM         520192 imapi2.dll
+-a----         8/15/2026  12:35 PM         839680 imapi2fs.dll
+-a----        11/20/2022   8:43 AM         120008 ImController.CoInstaller.dll
+-a----         6/26/2024   7:06 PM          94496 ImController.InfInstaller.exe
+-a----         6/26/2024   6:57 PM          24029 iMDriver.inf
+------         6/26/2024   7:06 PM         460032 iMDriverHelper.dll
+-a----        10/18/2026  10:25 PM         139264 ime_textinputhelpers.dll
+-a----          9/9/2025   8:44 PM          81920 imgutil.dll
+-a----         9/14/2026   7:00 PM         212288 imm32.dll
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS C:\WINDOWS\system32> Get-Service Sysmon64
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  Sysmon64           Sysmon64
+
+
+PS C:\WINDOWS\system32> $dest = "$env:USERPROFILE\Downloads\lab3-win"
+PS C:\WINDOWS\system32> New-Item -ItemType Directory -Force -Path $dest | Out-Null
+PS C:\WINDOWS\system32> Invoke-WebRequest -Uri "https://download.sysinternals.com/files/Sysmon.zip"           -OutFile "$dest\Sysmon.zip"
+PS C:\WINDOWS\system32> Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml" -OutFile "$dest\sysmonconfig.xml"
+PS C:\WINDOWS\system32> Expand-Archive "$dest\Sysmon.zip" -DestinationPath $dest -Force
+PS C:\WINDOWS\system32> Set-Location $dest
+PS C:\Users\afort\Downloads\lab3-win> .\Sysmon64.exe -accepteula -i sysmonconfig.xml
+
+
+System Monitor v15.22 - System activity monitor
+By Mark Russinovich and Thomas Garnier
+Copyright (C) 2014-2026 Microsoft Corporation
+Using libxml2. libxml2 is Copyright (C) 1998-2012 Daniel Veillard. All Rights Reserved.
+Sysinternals - www.sysinternals.com
+
+Loading configuration file with schema version 4.50
+Sysmon schema version: 4.91
+Configuration file validated.
+The service Sysmon64 is already registered. Uninstall Sysmon before reinstalling.
+PS C:\Users\afort\Downloads\lab3-win> Get-Service Sysmon64
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  Sysmon64           Sysmon64
+
+
+PS C:\Users\afort\Downloads\lab3-win> Start-Process -FilePath "powershell.exe" -Verb runAs -ArgumentList "-Command", "runas /user:BadUser1 cmd" -ErrorAction SilentlyContinue
+PS C:\Users\afort\Downloads\lab3-win> $cmd = 'Write-Host "Lab 3 - simulated encoded PowerShell activity"'
+PS C:\Users\afort\Downloads\lab3-win> $b64 = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($cmd))
+PS C:\Users\afort\Downloads\lab3-win> powershell.exe -EncodedCommand $b64
+Lab 3 - simulated encoded PowerShell activity
+PS C:\Users\afort\Downloads\lab3-win> net user lab3suspect P@ssw0rd! /add
+The command completed successfully.
+PS C:\Users\afort\Downloads\lab3-win> net user lab3suspect /delete
+The command completed successfully.
+PS C:\Users\afort\Downloads\lab3-win> Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4624,4625,4688,4720} -MaxEvents 100 |
+  Select-Object TimeCreated, Id, @{n='Msg';e={ ($_.Message -split "`n")[0] }} |
+  Format-Table -Wrap
+
+TimeCreated              Id Msg
+-----------              -- ---
+11/16/2026 10:35:34 PM 4688 A new process has been created.
+11/16/2026 10:35:34 PM 4688 A new process has been created.
+11/16/2026 10:35:33 PM 4688 A new process has been created.
+11/16/2026 10:35:33 PM 4624 An account was successfully logged on.
+11/16/2026 10:35:33 PM 4688 A new process has been created.
+11/16/2026 10:35:33 PM 4688 A new process has been created.
+11/16/2026 10:35:16 PM 4688 A new process has been created.
+11/16/2026 10:35:16 PM 4688 A new process has been created.
+11/16/2026 10:34:58 PM 4688 A new process has been created.
+11/16/2026 10:34:58 PM 4688 A new process has been created.
+11/16/2026 10:34:36 PM 4688 A new process has been created.
+11/16/2026 10:34:35 PM 4688 A new process has been created.
+11/16/2026 10:34:34 PM 4688 A new process has been created.
+11/16/2026 10:33:49 PM 4688 A new process has been created.
+11/16/2026 10:33:49 PM 4688 A new process has been created.
+11/16/2026 10:33:43 PM 4720 A user account was created.
+11/16/2026 10:33:43 PM 4688 A new process has been created.
+11/16/2026 10:33:43 PM 4688 A new process has been created.
+11/16/2026 10:32:52 PM 4688 A new process has been created.
+11/16/2026 10:32:33 PM 4688 A new process has been created.
+11/16/2026 10:32:32 PM 4688 A new process has been created.
+11/16/2026 10:32:32 PM 4624 An account was successfully logged on.
+11/16/2026 10:32:32 PM 4688 A new process has been created.
+11/16/2026 10:32:32 PM 4688 A new process has been created.
+11/16/2026 10:31:50 PM 4688 A new process has been created.
+11/16/2026 10:31:10 PM 4688 A new process has been created.
+11/16/2026 10:31:09 PM 4688 A new process has been created.
+11/16/2026 10:31:08 PM 4688 A new process has been created.
+11/16/2026 10:31:08 PM 4688 A new process has been created.
+11/16/2026 10:31:01 PM 4688 A new process has been created.
+11/16/2026 10:31:01 PM 4688 A new process has been created.
+11/16/2026 10:30:09 PM 4688 A new process has been created.
+11/16/2026 10:30:04 PM 4688 A new process has been created.
+11/16/2026 10:30:04 PM 4688 A new process has been created.
+11/16/2026 10:30:04 PM 4688 A new process has been created.
+11/16/2026 10:30:03 PM 4688 A new process has been created.
+11/16/2026 10:29:27 PM 4688 A new process has been created.
+11/16/2026 10:28:41 PM 4688 A new process has been created.
+11/16/2026 10:28:41 PM 4688 A new process has been created.
+11/16/2026 10:28:41 PM 4688 A new process has been created.
+11/16/2026 10:28:41 PM 4688 A new process has been created.
+11/16/2026 10:28:40 PM 4688 A new process has been created.
+11/16/2026 10:28:19 PM 4688 A new process has been created.
+11/16/2026 10:28:19 PM 4624 An account was successfully logged on.
+11/16/2026 10:28:18 PM 4688 A new process has been created.
+11/16/2026 10:28:06 PM 4688 A new process has been created.
+11/16/2026 10:28:05 PM 4688 A new process has been created.
+11/16/2026 10:28:05 PM 4688 A new process has been created.
+11/16/2026 10:28:04 PM 4688 A new process has been created.
+11/16/2026 10:27:28 PM 4688 A new process has been created.
+11/16/2026 10:24:34 PM 4688 A new process has been created.
+11/16/2026 10:24:34 PM 4688 A new process has been created.
+11/16/2026 10:24:33 PM 4688 A new process has been created.
+11/16/2026 10:24:29 PM 4688 A new process has been created.
+11/16/2026 10:23:25 PM 4688 A new process has been created.
+11/16/2026 10:23:10 PM 4688 A new process has been created.
+11/16/2026 10:23:10 PM 4688 A new process has been created.
+11/16/2026 10:22:58 PM 4688 A new process has been created.
+11/16/2026 10:22:46 PM 4688 A new process has been created.
+11/16/2026 10:22:35 PM 4688 A new process has been created.
+11/16/2026 10:22:04 PM 4688 A new process has been created.
+11/16/2026 10:22:04 PM 4688 A new process has been created.
+11/16/2026 10:22:02 PM 4688 A new process has been created.
+11/16/2026 10:22:02 PM 4688 A new process has been created.
+11/16/2026 10:22:02 PM 4688 A new process has been created.
+11/16/2026 10:22:02 PM 4688 A new process has been created.
+11/16/2026 10:21:51 PM 4688 A new process has been created.
+11/16/2026 10:21:50 PM 4688 A new process has been created.
+11/16/2026 10:21:50 PM 4688 A new process has been created.
+11/16/2026 10:21:48 PM 4688 A new process has been created.
+11/16/2026 10:21:21 PM 4688 A new process has been created.
+11/16/2026 10:20:59 PM 4688 A new process has been created.
+11/16/2026 10:20:57 PM 4688 A new process has been created.
+11/16/2026 10:20:40 PM 4688 A new process has been created.
+11/16/2026 10:20:28 PM 4688 A new process has been created.
+11/16/2026 10:20:25 PM 4688 A new process has been created.
+11/16/2026 10:20:15 PM 4688 A new process has been created.
+11/16/2026 10:20:12 PM 4688 A new process has been created.
+11/16/2026 10:20:10 PM 4688 A new process has been created.
+11/16/2026 10:20:09 PM 4688 A new process has been created.
+11/16/2026 10:20:09 PM 4688 A new process has been created.
+11/16/2026 10:20:09 PM 4688 A new process has been created.
+11/16/2026 10:20:09 PM 4688 A new process has been created.
+11/16/2026 10:20:09 PM 4688 A new process has been created.
+11/16/2026 10:20:09 PM 4688 A new process has been created.
+11/16/2026 10:20:09 PM 4688 A new process has been created.
+11/16/2026 10:20:08 PM 4688 A new process has been created.
+11/16/2026 10:20:08 PM 4688 A new process has been created.
+11/16/2026 10:20:08 PM 4688 A new process has been created.
+11/16/2026 10:20:06 PM 4688 A new process has been created.
+11/16/2026 10:19:59 PM 4688 A new process has been created.
+11/16/2026 10:19:59 PM 4688 A new process has been created.
+11/16/2026 10:19:38 PM 4688 A new process has been created.
+11/16/2026 10:19:32 PM 4688 A new process has been created.
+11/16/2026 10:19:29 PM 4688 A new process has been created.
+11/16/2026 10:19:28 PM 4688 A new process has been created.
+11/16/2026 10:19:28 PM 4624 An account was successfully logged on.
+11/16/2026 10:19:28 PM 4688 A new process has been created.
+11/16/2026 10:19:28 PM 4688 A new process has been created.
+11/16/2026 10:19:28 PM 4688 A new process has been created.
+
+
+PS C:\Users\afort\Downloads\lab3-win> Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4624,4625,4688,4720} -MaxEvents 100 |
+  Select-Object TimeCreated, Id, @{n='Msg';e={ ($_.Message -split "`n")[0] }} |
+  Format-Table -Wrap > security-events.json
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatStartData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.GroupStartData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData"
+PS C:\Users\afort\Downloads\lab3-win> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.GroupEndData"
+>> ParameterBinding(Out-File): name="InputObject"; value="Microsoft.PowerShell.Commands.Internal.Format.FormatEndData"
+PS C:\Users\afort\Downloads\lab3-win> pip --version
+pip 25.0.1 from C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\site-packages\pip (python 3.12)
+PS C:\Users\afort\Downloads\lab3-win> dir
+
+
+    Directory: C:\Users\afort\Downloads\lab3-win
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         9/10/2026   4:03 PM           7490 Eula.txt
+-a----         11/9/2026   5:20 PM           1009 lab3-suspicious-encoded-powershell.yml
+-a----        11/16/2026  10:46 PM          14090 security-events.json
+-a----         9/10/2026   4:06 PM        6162240 Sysmon.exe
+-a----        11/16/2026  10:30 PM        2938038 Sysmon.zip
+-a----         9/10/2026   4:06 PM        3203368 Sysmon64.exe
+-a----         9/10/2026   4:06 PM        3138824 Sysmon64a.exe
+-a----        11/16/2026  10:30 PM         123257 sysmonconfig.xml
+
+
+
+
+PS C:\Users\afort\Downloads\lab3-win> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20261116225119
+**********************
+
+
+**********************
+Windows PowerShell transcript start
+Start time: 20261117211808
+Username: CTS_LENOVO\afort
+RunAs User: CTS_LENOVO\afort
+Configuration Name: 
+Machine: CTS_LENOVO (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 6316
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\afort\OneDrive\Documents\PowerShell_transcript.CTS_LENOVO.sM5nHw9s.20261117211808.txt
+PS C:\WINDOWS\system32> Add-MpPreference -ExclusionPath "C:\Users\afort\AppData\Local\Microsoft"
+PS C:\WINDOWS\system32> (Get-MpPreference).ExclusionPath
+C:\Users\afort\AppData\Local\Microsoft
+PS C:\WINDOWS\system32> Get-MpPreference
+
+
+AiAgentNetworkInspection                              : 0
+AiAgentProtection                                     : 0
+AllowDatagramProcessingOnWinServer                    : False
+AllowNetworkProtectionDownLevel                       : False
+AllowNetworkProtectionOnWinServer                     : False
+AllowSwitchToAsyncInspection                          : True
+ApplyDisableNetworkScanningToIOAV                     : False
+AttackSurfaceReductionOnlyExclusions                  :
+AttackSurfaceReductionRules_Actions                   :
+AttackSurfaceReductionRules_Ids                       :
+AttackSurfaceReductionRules_RuleSpecificExclusions    :
+AttackSurfaceReductionRules_RuleSpecificExclusions_Id :
+BruteForceProtectionAggressiveness                    : 0
+BruteForceProtectionConfiguredState                   : 0
+BruteForceProtectionExclusions                        :
+BruteForceProtectionLocalNetworkBlocking              : False
+BruteForceProtectionMaxBlockTime                      : 0
+BruteForceProtectionSkipLearningPeriod                : False
+CheckForSignaturesBeforeRunningScan                   : False
+CloudBlockLevel                                       : 0
+CloudExtendedTimeout                                  : 0
+ComputerID                                            : B1829EAF-BD66-46B2-ACF4-C17EDEAC4782
+ControlledFolderAccessAllowedApplications             :
+ControlledFolderAccessDefaultProtectedFolders         : {N/A: Controlled Folder Access is disabled}
+ControlledFolderAccessProtectedFolders                :
+DefinitionUpdatesChannel                              : 0
+DeploymentChannel                                     : 0
+DisableArchiveScanning                                : False
+DisableAutoExclusions                                 : False
+DisableBehaviorMonitoring                             : False
+DisableBlockAtFirstSeen                               : False
+DisableCacheMaintenance                               : False
+DisableCatchupFullScan                                : True
+DisableCatchupQuickScan                               : True
+DisableCoreServiceECSIntegration                      : False
+DisableCoreServiceTelemetry                           : False
+DisableCpuThrottleOnIdleScans                         : True
+DisableDatagramProcessing                             : False
+DisableDnsOverTcpParsing                              : False
+DisableDnsParsing                                     : False
+DisableEmailScanning                                  : True
+DisableFtpParsing                                     : False
+DisableGradualRelease                                 : False
+DisableHttpParsing                                    : False
+DisableInboundConnectionFiltering                     : False
+DisableIOAVProtection                                 : False
+DisableNetworkProtectionPerfTelemetry                 : False
+DisablePrivacyMode                                    : False
+DisableQuicParsing                                    : True
+DisableRdpParsing                                     : False
+DisableRealtimeMonitoring                             : False
+DisableRemovableDriveScanning                         : True
+DisableRestorePoint                                   : True
+DisableScanningMappedNetworkDrivesForFullScan         : True
+DisableScanningNetworkFiles                           : False
+DisableScriptScanning                                 : False
+DisableSmtpParsing                                    : False
+DisableSshParsing                                     : False
+DisableTamperProtection                               : False
+DisableTlsParsing                                     : False
+EnableControlledFolderAccess                          : 0
+EnableConvertWarnToBlock                              : False
+EnableDnsSinkhole                                     : True
+EnableFileHashComputation                             : False
+EnableFullScanOnBatteryPower                          : False
+EnableLowCpuPriority                                  : False
+EnableNetworkProtection                               : 0
+EnablePackageInspection                               : 0
+EnableUdpReceiveOffload                               : False
+EnableUdpSegmentationOffload                          : False
+EngineUpdatesChannel                                  : 0
+ExclusionExtension                                    :
+ExclusionIpAddress                                    :
+ExclusionPath                                         : {C:\Users\afort\AppData\Local\Microsoft}
+ExclusionProcess                                      :
+ForceUseProxyOnly                                     : False
+HideExclusionsFromLocalUsers                          : True
+HighThreatDefaultAction                               : 0
+IntelTDTEnabled                                       : False
+LowThreatDefaultAction                                : 0
+MAPSReporting                                         : 2
+MeteredConnectionUpdates                              : False
+ModerateThreatDefaultAction                           : 0
+NetworkProtectionReputationMode                       : 0
+OobeEnableRtpAndSigUpdate                             : False
+PerformanceModeStatus                                 : 1
+PlatformUpdatesChannel                                : 0
+PromptEvidenceCollection                              : False
+ProxyBypass                                           :
+ProxyPacUrl                                           :
+ProxyServer                                           :
+PUAProtection                                         : 1
+QuarantinePurgeItemsAfterDelay                        : 90
+QuickScanIncludeExclusions                            : 0
+RandomizeScheduleTaskTimes                            : True
+RealTimeScanDirection                                 : 0
+RemediationScheduleDay                                : 0
+RemediationScheduleTime                               : 02:00:00
+RemoteEncryptionProtectionAggressiveness              : 0
+RemoteEncryptionProtectionConfiguredState             : 0
+RemoteEncryptionProtectionExclusions                  :
+RemoteEncryptionProtectionMaxBlockTime                : 0
+RemoveScanningThreadPoolCap                           : False
+ReportDynamicSignatureDroppedEvent                    : False
+ReportingAdditionalActionTimeOut                      : 10080
+ReportingCriticalFailureTimeOut                       : 10080
+ReportingNonCriticalTimeOut                           : 1440
+ScanAvgCPULoadFactor                                  : 50
+ScanOnlyIfIdleEnabled                                 : True
+ScanParameters                                        : 1
+ScanPurgeItemsAfterDelay                              : 15
+ScanScheduleDay                                       : 0
+ScanScheduleOffset                                    : 120
+ScanScheduleQuickScanTime                             : 00:00:00
+ScanScheduleTime                                      : 02:00:00
+SchedulerRandomizationTime                            : 4
+ServiceHealthReportInterval                           : 60
+SevereThreatDefaultAction                             : 0
+SharedSignaturesPath                                  :
+SharedSignaturesPathUpdateAtScheduledTimeOnly         : False
+SignatureAuGracePeriod                                : 0
+SignatureBlobFileSharesSources                        :
+SignatureBlobUpdateInterval                           : 60
+SignatureDefinitionUpdateFileSharesSources            :
+SignatureDisableUpdateOnStartupWithoutEngine          : False
+SignatureFallbackOrder                                : MicrosoftUpdateServer|MMPC
+SignatureFirstAuGracePeriod                           : 120
+SignatureScheduleDay                                  : 8
+SignatureScheduleTime                                 : 01:45:00
+SignatureUpdateCatchupInterval                        : 1
+SignatureUpdateInterval                               : 0
+SubmitSamplesConsent                                  : 1
+ThreatIDDefaultAction_Actions                         :
+ThreatIDDefaultAction_Ids                             :
+ThrottleForScheduledScanOnly                          : True
+TrustLabelProtectionStatus                            : 0
+UILockdown                                            : False
+UnknownThreatDefaultAction                            : 0
+PSComputerName                                        :
+
+
+
+PS C:\WINDOWS\system32> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20261117211844
+**********************
