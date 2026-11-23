@@ -8,7 +8,7 @@
 
 # Using a known, secure SHA256 hash baseline for builder:
 
-FROM python:3.11-slim@sha256:07d4824036af339fa1b6ef769cc99d9c10a141769538b52b3b597c84f7a7b535 AS builder
+FROM python:3.15-slim@sha256:65a65fc7b30b06cb6df4930fd4650697cb23f4c2698ab81fc87e4b031bc36928 AS builder
 
 
 # General descriptions & labels:
@@ -45,7 +45,7 @@ RUN pip install --no-cache-dir --require-hashes -r requirements.lock
 
 # Utilizing the same SHA256 digest from the builder phase for the runtime phase:
 
-FROM python:3.11-slim@sha256:07d4824036af339fa1b6ef769cc99d9c10a141769538b52b3b597c84f7a7b535 AS runtime
+FROM python:3.15-slim@sha256:65a65fc7b30b06cb6df4930fd4650697cb23f4c2698ab81fc87e4b031bc36928 AS runtime
 
 
 #Creates a non-root user:
